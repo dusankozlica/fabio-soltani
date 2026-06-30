@@ -344,7 +344,7 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 /* full-bleed panorama, integrated into the section (no card frame) */
-.ch-scroller{position:relative;width:100%;max-width:1300px;margin-inline:auto;overflow:hidden;z-index:2}
+.ch-scroller{position:relative;width:100%;max-width:1100px;margin-inline:auto;overflow:hidden;z-index:2}
 .ch-scroller.is-fit{overflow:hidden}
 /* oriental rug backdrop on the RIGHT of the panorama, fading left into cream */
 .ch-scroller::before{content:"";position:absolute;top:0;right:0;bottom:0;width:56%;z-index:0;pointer-events:none;background:url('assets/img/rug-clean.jpg') center/cover no-repeat;filter:sepia(.62) saturate(.7) brightness(1.06) contrast(.92);-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.55) 42%,#000 100%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.55) 42%,#000 100%)}
