@@ -364,8 +364,8 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 /* positioned elements */
 .ch-el{position:absolute;display:block;height:auto;-webkit-user-drag:none;user-select:none}
 .ch-grand{left:20px;top:80px;width:432px;z-index:4}
-.ch-handwerk{left:482px;top:40px;width:332px;z-index:2}
-.ch-kind{left:742px;top:84px;width:430px;z-index:4}
+.ch-handwerk{left:418px;top:40px;width:332px;z-index:2}
+.ch-kind{left:606px;top:84px;width:430px;z-index:4}
 .ch-fabio{left:1130px;bottom:-22px;width:624px;z-index:6;-webkit-mask-image:linear-gradient(180deg,#000 82%,rgba(0,0,0,0) 100%);mask-image:linear-gradient(180deg,#000 82%,rgba(0,0,0,0) 100%)}
 
 /* Fabio's name + description as real text, at his hip */
