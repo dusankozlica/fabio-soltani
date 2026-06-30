@@ -344,7 +344,7 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 /* full-bleed panorama, integrated into the section (no card frame) */
-.ch-scroller{position:relative;width:100%;max-width:1100px;margin-inline:auto;overflow:hidden;z-index:2}
+.ch-scroller{position:relative;width:100%;overflow:hidden;z-index:2}
 .ch-scroller.is-fit{overflow:hidden}
 /* oriental rug backdrop on the RIGHT of the panorama, fading left into cream */
 .ch-scroller::before{content:"";position:absolute;top:0;right:0;bottom:0;width:56%;z-index:0;pointer-events:none;background:url('assets/img/rug-clean.jpg') center/cover no-repeat;filter:sepia(.62) saturate(.7) brightness(1.06) contrast(.92);-webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.55) 42%,#000 100%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.55) 42%,#000 100%)}
@@ -361,13 +361,13 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 
 /* positioned elements */
 .ch-el{position:absolute;display:block;height:auto;-webkit-user-drag:none;user-select:none}
-.ch-grand{left:20px;top:80px;width:432px;z-index:4}
-.ch-handwerk{left:418px;top:40px;width:332px;z-index:2}
-.ch-kind{left:700px;top:84px;width:430px;z-index:4}
-.ch-fabio{left:1130px;bottom:-22px;width:624px;z-index:6;-webkit-mask-image:linear-gradient(180deg,#000 82%,rgba(0,0,0,0) 100%);mask-image:linear-gradient(180deg,#000 82%,rgba(0,0,0,0) 100%)}
+.ch-grand{left:40px;top:120px;width:372px;z-index:4}
+.ch-handwerk{left:430px;top:84px;width:288px;z-index:2}
+.ch-kind{left:728px;top:122px;width:374px;z-index:4}
+.ch-fabio{left:1150px;bottom:34px;width:540px;z-index:6;-webkit-mask-image:linear-gradient(180deg,#000 82%,rgba(0,0,0,0) 100%);mask-image:linear-gradient(180deg,#000 82%,rgba(0,0,0,0) 100%)}
 
 /* Fabio's name + description as real text, at his hip */
-.ch-today{left:1090px;top:716px;width:316px;z-index:7;text-align:left;background:rgba(251,248,241,.97);border:1px solid rgba(169,133,58,.42);border-radius:12px;padding:1rem 1.2rem;box-shadow:0 22px 48px -30px rgba(40,28,10,.5)}
+.ch-today{left:1110px;top:600px;width:312px;z-index:7;text-align:left;background:rgba(251,248,241,.97);border:1px solid rgba(169,133,58,.42);border-radius:12px;padding:1rem 1.2rem;box-shadow:0 22px 48px -30px rgba(40,28,10,.5)}
 .ch-today-eb{display:block;font-family:var(--font-d);font-size:.8rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:.3rem}
 .ch-today-name{font-family:var(--font-d);font-weight:800;font-size:1.7rem;line-height:1;letter-spacing:.01em;text-transform:uppercase;color:var(--on-cream);margin-bottom:.45rem}
 .ch-today-text{font-family:var(--font-t);font-size:1.02rem;line-height:1.5;color:var(--on-cream-mut)}
