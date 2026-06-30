@@ -339,16 +339,20 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 /* =========================================================
    HERITAGE — assembled panorama from prepared PNG elements
    ========================================================= */
-.heritage{background:radial-gradient(125% 105% at 15% -12%,#FBF7EF 0%,var(--cream) 60%);color:var(--on-cream);position:relative;overflow:hidden}
+.heritage{position:relative;color:var(--on-cream);overflow:hidden;background:radial-gradient(135% 125% at 50% -12%,#FBF4E2 0%,#F0E3CA 52%,#E6D6B6 100%)}
+/* oriental carpet texture: visible at the edges, faded in the centre */
+.heritage::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:url('assets/img/rug-clean.jpg') center/cover no-repeat;filter:sepia(.6) saturate(.5) brightness(1.12) contrast(.92);opacity:.22;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(128% 96% at 50% 40%,transparent 0%,transparent 38%,rgba(0,0,0,.92) 100%);mask-image:radial-gradient(128% 96% at 50% 40%,transparent 0%,transparent 38%,rgba(0,0,0,.92) 100%)}
+/* vintage inset frame */
+.heritage::after{content:"";position:absolute;inset:14px;z-index:1;pointer-events:none;border:1px solid rgba(169,133,58,.34);border-radius:3px}
 .hl-gold{color:var(--gold-deep)}
 .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 /* full-bleed panorama, integrated into the section (no card frame) */
-.ch-scroller{position:relative;width:100%;overflow:hidden}
+.ch-scroller{position:relative;width:100%;overflow:hidden;z-index:2}
 .ch-scroller.is-fit{overflow:hidden}
 
 /* centered real-text headline (site display font) */
-.ch-head-block{text-align:center;max-width:1100px;margin:0 auto clamp(.7rem,1.4vw,1.2rem)}
+.ch-head-block{position:relative;z-index:2;text-align:center;max-width:1100px;margin:0 auto clamp(.7rem,1.4vw,1.2rem)}
 .ch-head-block .eyebrow{margin-bottom:.7rem}
 .ch-h2{font-family:var(--font-d);font-weight:800;font-size:clamp(1.5rem,2.7vw,2.5rem);line-height:1.06;letter-spacing:-.01em;text-transform:uppercase;color:var(--on-cream);text-wrap:balance}
 .ch-h2 .hl-gold{color:var(--gold-deep)}
