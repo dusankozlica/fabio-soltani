@@ -339,11 +339,11 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 /* =========================================================
    HERITAGE — assembled panorama from prepared PNG elements
    ========================================================= */
-.heritage{position:relative;color:var(--on-cream);overflow:hidden;background:radial-gradient(135% 125% at 50% -12%,#FBF4E2 0%,#F0E3CA 52%,#E6D6B6 100%)}
-/* oriental carpet texture: visible at the edges, faded in the centre */
-.heritage::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:url('assets/img/rug-clean.jpg') center/cover no-repeat;filter:sepia(.6) saturate(.5) brightness(1.12) contrast(.92);opacity:.22;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(128% 96% at 50% 40%,transparent 0%,transparent 38%,rgba(0,0,0,.92) 100%);mask-image:radial-gradient(128% 96% at 50% 40%,transparent 0%,transparent 38%,rgba(0,0,0,.92) 100%)}
-/* vintage inset frame */
-.heritage::after{content:"";position:absolute;inset:14px;z-index:1;pointer-events:none;border:1px solid rgba(169,133,58,.34);border-radius:3px}
+.heritage{position:relative;color:var(--on-cream);overflow:hidden;background:#e9dcc0}
+/* clearly visible oriental carpet background (sepia-toned) */
+.heritage::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:url('assets/img/rug-clean.jpg') center/cover no-repeat;filter:sepia(.7) saturate(.5) brightness(1.08) contrast(.9);opacity:.5}
+/* warm parchment veil + lighter top so headline/labels stay readable (no border) */
+.heritage::after{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(125% 80% at 50% 3%,rgba(250,244,230,.94) 0%,rgba(247,239,221,.5) 38%,rgba(245,236,215,.16) 70%,rgba(245,236,215,0) 100%),linear-gradient(180deg,rgba(244,234,213,.2),rgba(231,214,184,.36))}
 .hl-gold{color:var(--gold-deep)}
 .sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
