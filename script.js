@@ -1,0 +1,464 @@
+/* =========================================================
+   FABIO SOLTANI — interactions
+   ========================================================= */
+(function () {
+  'use strict';
+
+  /* === CONFIG — bei Bedarf anpassen ============================ */
+  var BOOKING_PHONE = '+41 44 382 17 69';
+  var BOOKING_EMAIL = 'info@fabiosoltani.ch';   // TODO: echte Empfangsadresse bestätigen
+  var OPEN_HOUR = 8, CLOSE_HOUR = 18;           // Mo–Fr 08–18 Uhr
+  var WORKDAYS = [1, 2, 3, 4, 5];               // Mo–Fr (0=So)
+  // Optional: echte Atelier-Videos. Pfad eintragen, sobald Footage vorhanden ist –
+  // dann spielt das Video automatisch, sonst bleibt die animierte Bild-Sektion (kein 404).
+  var VIDEOS = { hero: 'assets/video/hero.mp4?v=3', philosophie: 'assets/video/philosophie.mp4' };  // leeren ('') = nur animiertes Foto
+  /* ============================================================ */
+
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.addEventListener('DOMContentLoaded', function () {
+    setYear();
+    header();
+    activeNav();
+    mobileMenu();
+    reveal();
+    trustReveal();
+    counters();
+    videoFallback();
+    beforeAfter();
+    booking();
+    heritageFit();
+  });
+
+  /* ---------- heritage panorama: scale the fixed stage to fit the framed panel ---------- */
+  function heritageFit() {
+    var frame = $('.ch-scroller');
+    var stage = $('.ch-stage');
+    if (!frame || !stage) return;
+    var DESIGN_W = 1900;
+    var apply = function () {
+      if (window.innerWidth <= 1024) {
+        stage.style.transform = '';
+        frame.style.height = '';
+        frame.classList.remove('is-fit');
+        return;
+      }
+      frame.classList.add('is-fit');
+      stage.style.transform = '';            // measure unscaled
+      var s = frame.clientWidth / DESIGN_W;
+      stage.style.transform = 'scale(' + s + ')';
+      frame.style.height = Math.round(stage.offsetHeight * s) + 'px';
+    };
+    apply();
+    var t;
+    window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(apply, 120); }, { passive: true });
+    window.addEventListener('load', apply);
+  }
+
+  /* ---------- year ---------- */
+  function setYear() {
+    var y = $('#year'); if (y) y.textContent = new Date().getFullYear();
+  }
+
+  /* ---------- sticky header ---------- */
+  function header() {
+    var h = $('.site-header');
+    if (!h) return;
+    var onScroll = function () { h.classList.toggle('scrolled', window.scrollY > 24); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  /* ---------- active section in nav ---------- */
+  function activeNav() {
+    var links = $$('.main-nav a');
+    if (!links.length || !('IntersectionObserver' in window)) return;
+    var map = [];
+    links.forEach(function (a) {
+      var id = (a.getAttribute('href') || '').replace(/^#/, '');
+      var sec = id && document.getElementById(id);
+      if (sec) map.push({ link: a, sec: sec });
+    });
+    if (!map.length) return;
+    var visible = {};
+    var apply = function () {
+      var current = null;
+      for (var i = 0; i < map.length; i++) { if (visible[map[i].sec.id]) { current = map[i].link; break; } }
+      links.forEach(function (a) { a.classList.remove('is-active'); a.removeAttribute('aria-current'); });
+      if (current) { current.classList.add('is-active'); current.setAttribute('aria-current', 'true'); }
+    };
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { visible[en.target.id] = en.isIntersecting; });
+      apply();
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    map.forEach(function (m) { io.observe(m.sec); });
+  }
+
+  /* ---------- mobile menu ---------- */
+  function mobileMenu() {
+    var btn = $('.nav-toggle'), menu = $('#mobile-menu');
+    if (!btn || !menu) return;
+    var open = function (state) {
+      btn.setAttribute('aria-expanded', state);
+      if (state) {
+        menu.hidden = false;
+        requestAnimationFrame(function () { menu.classList.add('open'); });
+        document.body.style.overflow = 'hidden';
+        btn.setAttribute('aria-label', 'Menü schliessen');
+        var first = $$('a', menu)[0]; if (first) first.focus();
+      } else {
+        menu.classList.remove('open');
+        document.body.style.overflow = '';
+        btn.setAttribute('aria-label', 'Menü öffnen');
+        if (document.activeElement && menu.contains(document.activeElement)) btn.focus();
+        setTimeout(function () { if (btn.getAttribute('aria-expanded') === 'false') menu.hidden = true; }, 360);
+      }
+    };
+    btn.addEventListener('click', function () {
+      open(btn.getAttribute('aria-expanded') !== 'true');
+    });
+    $$('a', menu).forEach(function (a) { a.addEventListener('click', function () { open(false); }); });
+    window.addEventListener('keydown', function (e) { if (e.key === 'Escape') open(false); });
+    // lightweight focus trap while the overlay is open
+    menu.addEventListener('keydown', function (e) {
+      if (e.key !== 'Tab' || btn.getAttribute('aria-expanded') !== 'true') return;
+      var f = $$('a, button', menu).filter(function (el) { return el.offsetParent !== null; });
+      if (!f.length) return;
+      var first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { last.focus(); e.preventDefault(); }
+      else if (!e.shiftKey && document.activeElement === last) { first.focus(); e.preventDefault(); }
+    });
+  }
+
+  /* ---------- trust card: deliberate scroll entrance ---------- */
+  function trustReveal() {
+    var card = $('.trust-card');
+    if (!card) return;
+    if (reduce || !('IntersectionObserver' in window)) { card.classList.add('is-in'); return; }
+    var io = new IntersectionObserver(function (entries, obs) {
+      if (entries[0].isIntersecting) { card.classList.add('is-in'); obs.disconnect(); }
+    }, { threshold: 0.4 });
+    io.observe(card);
+  }
+
+  /* ---------- reveal on scroll ---------- */
+  function reveal() {
+    var els = $$('.reveal');
+    if (reduce || !('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          var el = en.target;
+          var sibs = Array.prototype.slice.call(el.parentNode.children).filter(function (c) { return c.classList.contains('reveal'); });
+          var i = sibs.indexOf(el);
+          el.style.transitionDelay = Math.min(i, 5) * 80 + 'ms';
+          el.classList.add('in');
+          io.unobserve(el);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---------- count-up stats ---------- */
+  function counters() {
+    var nums = $$('.stat-num');
+    if (!nums.length) return;
+    var run = function (el) {
+      var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+      var suffix = el.getAttribute('data-suffix') || '';
+      if (reduce) { el.textContent = format(target) + suffix; return; }
+      var dur = 1500, t0 = null;
+      var tick = function (ts) {
+        if (!t0) t0 = ts;
+        var p = Math.min((ts - t0) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = format(Math.round(target * eased)) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    var format = function (n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "'"); };
+    if (!('IntersectionObserver' in window)) { nums.forEach(run); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { if (en.isIntersecting) { run(en.target); io.unobserve(en.target); } });
+    }, { threshold: 0.6 });
+    nums.forEach(function (el) { io.observe(el); });
+  }
+
+  /* ---------- video sections (only request a file that is configured) ---------- */
+  function videoFallback() {
+    $$('.media-video').forEach(function (v) {
+      var key = v.getAttribute('data-video-key');
+      var url = key && VIDEOS[key];
+      if (!url) return; // no footage configured -> keep the animated image, no 404
+      var src = document.createElement('source');
+      src.src = url; src.type = 'video/mp4';
+      v.appendChild(src);
+      var ready = function () { if (v.readyState >= 2) v.classList.add('is-ready'); };
+      v.addEventListener('loadeddata', ready);
+      v.addEventListener('canplay', ready);
+      try { v.load(); } catch (e) {}
+    });
+  }
+
+  /* ---------- before / after sliders ---------- */
+  function beforeAfter() {
+    $$('[data-ba]').forEach(function (ba) {
+      var handle = $('.ba-handle', ba);
+      var set = function (pct) {
+        pct = Math.max(2, Math.min(98, pct));
+        ba.style.setProperty('--pos', pct + '%');
+        handle.setAttribute('aria-valuenow', Math.round(pct));
+      };
+      var fromEvent = function (clientX) {
+        var r = ba.getBoundingClientRect();
+        set(((clientX - r.left) / r.width) * 100);
+      };
+      var dragging = false;
+      var start = function (e) {
+        dragging = true; ba.classList.add('dragging');
+        fromEvent((e.touches ? e.touches[0] : e).clientX);
+        e.preventDefault();
+      };
+      var move = function (e) {
+        if (!dragging) return;
+        if (e.cancelable) e.preventDefault();
+        fromEvent((e.touches ? e.touches[0] : e).clientX);
+      };
+      var end = function () { dragging = false; ba.classList.remove('dragging'); };
+
+      ba.addEventListener('mousedown', start);
+      window.addEventListener('mousemove', move);
+      window.addEventListener('mouseup', end);
+      ba.addEventListener('touchstart', start, { passive: false });
+      window.addEventListener('touchmove', move, { passive: false });
+      window.addEventListener('touchend', end);
+
+      handle.addEventListener('keydown', function (e) {
+        var cur = parseFloat(ba.style.getPropertyValue('--pos')) || 50;
+        if (e.key === 'ArrowLeft') { set(cur - 4); e.preventDefault(); }
+        else if (e.key === 'ArrowRight') { set(cur + 4); e.preventDefault(); }
+        else if (e.key === 'Home') { set(2); e.preventDefault(); }
+        else if (e.key === 'End') { set(98); e.preventDefault(); }
+      });
+
+      // subtle auto-hint when first scrolled into view
+      if (!reduce && 'IntersectionObserver' in window) {
+        var hinted = false;
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting && !hinted) {
+              hinted = true;
+              var seq = [50, 62, 38, 50], i = 0;
+              var step = function () { if (i < seq.length) { set(seq[i++]); setTimeout(step, 360); } };
+              setTimeout(step, 400);
+              io.unobserve(en.target);
+            }
+          });
+        }, { threshold: 0.5 });
+        io.observe(ba);
+      }
+    });
+  }
+
+  /* ---------- booking widget ---------- */
+  function booking() {
+    var form = $('#bookingForm');
+    if (!form) return;
+
+    var calGrid = $('#calGrid'), calTitle = $('#calTitle');
+    var prevBtn = $('#calPrev'), nextBtn = $('#calNext');
+    var slotWrap = $('#slotWrap'), slotsEl = $('#slots');
+    var errorEl = $('#bfError');
+    var success = $('#bookingSuccess');
+
+    var MONTHS = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+    var today = new Date(); today.setHours(0, 0, 0, 0);
+    var selectedDate = null, selectedSlot = null;
+
+    function sameDay(a, b) { return a && b && a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate(); }
+    function isWorkday(d) { return WORKDAYS.indexOf(d.getDay()) !== -1; }
+    function selectable(d) { return d >= today && isWorkday(d); }
+
+    // first month (from today) that actually has a selectable day -> never open on an empty month
+    function firstSelectableMonth() {
+      var v = new Date(today.getFullYear(), today.getMonth(), 1);
+      for (var guard = 0; guard < 24; guard++) {
+        var days = new Date(v.getFullYear(), v.getMonth() + 1, 0).getDate();
+        for (var d = 1; d <= days; d++) {
+          if (selectable(new Date(v.getFullYear(), v.getMonth(), d))) return v;
+        }
+        v = new Date(v.getFullYear(), v.getMonth() + 1, 1);
+      }
+      return new Date(today.getFullYear(), today.getMonth(), 1);
+    }
+    var minMonth = firstSelectableMonth();
+    var view = new Date(minMonth.getFullYear(), minMonth.getMonth(), 1);
+
+    function renderCal() {
+      calTitle.textContent = MONTHS[view.getMonth()] + ' ' + view.getFullYear();
+      calGrid.innerHTML = '';
+      var first = new Date(view.getFullYear(), view.getMonth(), 1);
+      var startDow = (first.getDay() + 6) % 7; // Mo=0
+      var days = new Date(view.getFullYear(), view.getMonth() + 1, 0).getDate();
+      for (var i = 0; i < startDow; i++) {
+        var e = document.createElement('div'); e.className = 'cal-cell empty'; e.setAttribute('aria-hidden', 'true'); calGrid.appendChild(e);
+      }
+      for (var d = 1; d <= days; d++) {
+        var date = new Date(view.getFullYear(), view.getMonth(), d);
+        var cell = document.createElement('button');
+        cell.type = 'button'; cell.className = 'cal-cell'; cell.textContent = d;
+        cell.setAttribute('aria-label', date.toLocaleDateString('de-CH', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }));
+        if (sameDay(date, today) && selectable(date)) cell.classList.add('today');
+        if (!selectable(date)) {
+          cell.classList.add('muted'); cell.disabled = true;
+        } else {
+          if (sameDay(date, selectedDate)) { cell.classList.add('selected'); cell.setAttribute('aria-selected', 'true'); }
+          (function (dd, c) {
+            c.addEventListener('click', function () {
+              selectedDate = dd; selectedSlot = null;
+              $$('.cal-cell.selected', calGrid).forEach(function (x) { x.classList.remove('selected'); x.removeAttribute('aria-selected'); });
+              c.classList.add('selected'); c.setAttribute('aria-selected', 'true');
+              renderSlots();
+              clearError();
+            });
+          })(date, cell);
+        }
+        calGrid.appendChild(cell);
+      }
+      // never navigate before the first month that has selectable days
+      prevBtn.disabled = (view.getFullYear() === minMonth.getFullYear() && view.getMonth() === minMonth.getMonth());
+    }
+
+    function renderSlots() {
+      slotsEl.innerHTML = '';
+      for (var h = OPEN_HOUR; h < CLOSE_HOUR; h++) {
+        var label = (h < 10 ? '0' + h : h) + ':00';
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'slot'; b.textContent = label;
+        (function (lab, btn) {
+          btn.addEventListener('click', function () {
+            selectedSlot = lab;
+            $$('.slot.selected', slotsEl).forEach(function (x) { x.classList.remove('selected'); });
+            btn.classList.add('selected');
+            clearError();
+          });
+        })(label, b);
+        slotsEl.appendChild(b);
+      }
+      slotWrap.hidden = false;
+    }
+
+    prevBtn.addEventListener('click', function () {
+      view = new Date(view.getFullYear(), view.getMonth() - 1, 1); renderCal();
+    });
+    nextBtn.addEventListener('click', function () {
+      view = new Date(view.getFullYear(), view.getMonth() + 1, 1); renderCal();
+    });
+
+    function clearError() {
+      errorEl.hidden = true; errorEl.textContent = '';
+      $$('.invalid', form).forEach(function (el) {
+        el.classList.remove('invalid'); el.removeAttribute('aria-invalid'); el.removeAttribute('aria-describedby');
+      });
+    }
+    function showError(msg, el) {
+      errorEl.textContent = msg; errorEl.hidden = false;
+      if (el) {
+        el.classList.add('invalid');
+        el.setAttribute('aria-invalid', 'true');
+        el.setAttribute('aria-describedby', 'bfError');
+        el.focus();
+      } else {
+        // date/time errors: move focus so the announced error has context
+        (selectedDate ? slotsEl : calGrid).focus();
+      }
+    }
+
+    form.addEventListener('input', function (e) {
+      if (e.target && e.target.classList) {
+        e.target.classList.remove('invalid');
+        e.target.removeAttribute('aria-invalid');
+        e.target.removeAttribute('aria-describedby');
+      }
+    });
+
+    function fmtDate(d) {
+      return d.toLocaleDateString('de-CH', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' });
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      clearError();
+      var name = $('#bf-name'), phone = $('#bf-phone'), email = $('#bf-email');
+      if (!selectedDate) return showError('Bitte wählen Sie ein Datum aus.');
+      if (!selectedSlot) return showError('Bitte wählen Sie eine Uhrzeit aus.');
+      if (!name.value.trim()) return showError('Bitte geben Sie Ihren Namen an.', name);
+      if (!phone.value.trim()) return showError('Bitte geben Sie eine Telefonnummer an.', phone);
+      if (!email.checkValidity()) return showError('Bitte geben Sie eine gültige E-Mail-Adresse an.', email);
+
+      var type = (form.querySelector('input[name="type"]:checked') || {}).value || 'Beratung';
+      var msg = $('#bf-msg').value.trim();
+      var dateStr = fmtDate(selectedDate);
+
+      // compose mailto for forwarding
+      var subject = 'Terminanfrage – ' + type + ' (' + dateStr + ', ' + selectedSlot + ')';
+      var body =
+        'Neue Terminanfrage über die Website:\n\n' +
+        'Art der Beratung: ' + type + '\n' +
+        'Datum: ' + dateStr + '\n' +
+        'Uhrzeit: ' + selectedSlot + ' Uhr\n\n' +
+        'Name: ' + name.value.trim() + '\n' +
+        'Telefon: ' + phone.value.trim() + '\n' +
+        'E-Mail: ' + email.value.trim() + '\n' +
+        'Nachricht: ' + (msg || 'keine Angabe') + '\n';
+      var mailto = 'mailto:' + BOOKING_EMAIL +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(body);
+
+      var mailBtn = $('#successMail');
+      if (mailBtn) mailBtn.setAttribute('href', mailto);
+      var callBtn = $('#successCall');
+      if (callBtn) callBtn.setAttribute('href', 'tel:' + BOOKING_PHONE.replace(/\s/g, ''));
+      var sText = $('#successText');
+      if (sText) sText.innerHTML = 'Nur noch ein Schritt: Damit Ihre Anfrage für <strong>' + dateStr +
+        ' um ' + selectedSlot + ' Uhr</strong> (' + type + ') bei uns ankommt, senden Sie bitte die vorbereitete ' +
+        'E-Mail ab, oder rufen Sie uns direkt an.';
+
+      form.hidden = true;
+      success.hidden = false;
+      success.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+      // open the prepared e-mail so the request actually reaches the owner
+      try { window.location.href = mailto; } catch (e) {}
+    });
+
+    var resetBtn = $('#successReset');
+    if (resetBtn) resetBtn.addEventListener('click', function () {
+      form.reset();
+      selectedDate = null; selectedSlot = null;
+      slotWrap.hidden = true;
+      view = new Date(minMonth.getFullYear(), minMonth.getMonth(), 1);
+      renderCal();
+      success.hidden = true; form.hidden = false;
+      form.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+    });
+
+    renderCal();
+  }
+
+  /* ---------- atelier play buttons -> jump to reels ---------- */
+  document.addEventListener('click', function (e) {
+    var play = e.target.closest && e.target.closest('.atelier-play');
+    if (play) {
+      var social = document.getElementById('social');
+      if (social) social.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+    }
+  });
+
+})();
