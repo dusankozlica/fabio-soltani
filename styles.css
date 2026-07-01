@@ -471,6 +471,20 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .blog-allink svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s var(--ease)}
 .blog-allink:hover{background:var(--gold);color:#241a09}
 .blog-allink:hover svg{transform:translateX(4px)}
+/* Magazin card grid */
+.mag-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.6rem,2.6vw,2.4rem);margin-top:clamp(2.4rem,4.5vw,3.4rem)}
+.mag-card{display:flex;flex-direction:column;color:var(--on-cream);transition:transform .35s var(--ease)}
+.mag-card:hover{transform:translateY(-6px)}
+.mag-figure{margin:0;overflow:hidden;border-radius:var(--r-lg);aspect-ratio:4/3;border:1px solid var(--cream-line);box-shadow:0 1px 2px rgba(40,28,10,.06);transition:box-shadow .45s var(--ease),border-color .35s}
+.mag-figure img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease)}
+.mag-card:hover .mag-figure{box-shadow:0 26px 54px -32px rgba(40,28,10,.5);border-color:#d8cdb6}
+.mag-card:hover .mag-figure img{transform:scale(1.05)}
+.mag-title{font-family:var(--font-t);font-weight:600;font-size:1.12rem;line-height:1.32;color:var(--on-cream);margin-top:1.05rem}
+.mag-title span{background-image:linear-gradient(var(--gold-deep),var(--gold-deep));background-size:0% 2px;background-position:0 100%;background-repeat:no-repeat;transition:background-size .5s var(--ease);padding-bottom:3px}
+.mag-card:hover .mag-title span{background-size:100% 2px}
+.mag-cat{font-family:var(--font-t);font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-deep);margin-top:.6rem}
+@media(max-width:920px){.mag-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.mag-grid{grid-template-columns:1fr;max-width:340px;margin-inline:auto}}
 
 /* =========================================================
    BOOKING
