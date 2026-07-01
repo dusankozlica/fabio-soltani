@@ -461,4 +461,64 @@
     }
   });
 
+  /* ---------- FAQ: golden-angle spiral background + search filter ---------- */
+  (function initFaq() {
+    var host = document.getElementById('faqSpiral');
+    if (host && !host.firstChild) {
+      var NS = 'http://www.w3.org/2000/svg';
+      var SIZE = 620, CENTER = SIZE / 2, PAD = 4;
+      var N = 440, DOT = 1.9, DUR = 3.2;
+      var GOLDEN = Math.PI * (3 - Math.sqrt(5));
+      var MAXR = CENTER - PAD - DOT, COLOR = '#C7A24E';
+      var svg = document.createElementNS(NS, 'svg');
+      svg.setAttribute('width', SIZE); svg.setAttribute('height', SIZE);
+      svg.setAttribute('viewBox', '0 0 ' + SIZE + ' ' + SIZE);
+      for (var i = 0; i < N; i++) {
+        var idx = i + 0.5, frac = idx / N;
+        var r = Math.sqrt(frac) * MAXR, th = idx * GOLDEN;
+        var c = document.createElementNS(NS, 'circle');
+        c.setAttribute('cx', (CENTER + r * Math.cos(th)).toFixed(2));
+        c.setAttribute('cy', (CENTER + r * Math.sin(th)).toFixed(2));
+        c.setAttribute('r', DOT);
+        c.setAttribute('fill', COLOR);
+        c.setAttribute('opacity', '0.55');
+        if (!reduce) {
+          var begin = (frac * DUR).toFixed(2) + 's';
+          var ar = document.createElementNS(NS, 'animate');
+          ar.setAttribute('attributeName', 'r');
+          ar.setAttribute('values', (DOT * 0.5) + ';' + (DOT * 1.5) + ';' + (DOT * 0.5));
+          ar.setAttribute('dur', DUR + 's'); ar.setAttribute('begin', begin);
+          ar.setAttribute('repeatCount', 'indefinite'); ar.setAttribute('calcMode', 'spline');
+          ar.setAttribute('keyTimes', '0;0.5;1'); ar.setAttribute('keySplines', '0.4 0 0.6 1;0.4 0 0.6 1');
+          c.appendChild(ar);
+          var ao = document.createElementNS(NS, 'animate');
+          ao.setAttribute('attributeName', 'opacity');
+          ao.setAttribute('values', '0.18;0.85;0.18');
+          ao.setAttribute('dur', DUR + 's'); ao.setAttribute('begin', begin);
+          ao.setAttribute('repeatCount', 'indefinite'); ao.setAttribute('calcMode', 'spline');
+          ao.setAttribute('keyTimes', '0;0.5;1'); ao.setAttribute('keySplines', '0.4 0 0.6 1;0.4 0 0.6 1');
+          c.appendChild(ao);
+        }
+        svg.appendChild(c);
+      }
+      host.appendChild(svg);
+    }
+
+    var input = document.getElementById('faqSearch');
+    var grid = document.getElementById('faqGrid');
+    var empty = document.getElementById('faqEmpty');
+    if (input && grid) {
+      var items = [].slice.call(grid.querySelectorAll('.faq-item'));
+      input.addEventListener('input', function () {
+        var q = input.value.trim().toLowerCase(), shown = 0;
+        items.forEach(function (it) {
+          var match = !q || it.textContent.toLowerCase().indexOf(q) !== -1;
+          it.hidden = !match;
+          if (match) shown++;
+        });
+        if (empty) empty.hidden = shown !== 0;
+      });
+    }
+  })();
+
 })();
