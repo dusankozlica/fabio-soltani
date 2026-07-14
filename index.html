@@ -30,7 +30,7 @@
 <link rel="preload" as="font" type="font/woff" href="assets/fonts/GoshaSans-Bold.woff" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="styles.css?v=110">
+<link rel="stylesheet" href="styles.css?v=111">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -47,6 +47,12 @@
   "image": "https://fabiosoltani.ch/assets/img/atelier-hero.jpg",
   "priceRange": "$$",
   "areaServed": "Schweiz",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Wädenswil",
+    "postalCode": "8820",
+    "addressCountry": "CH"
+  },
   "openingHoursSpecification": [{
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
@@ -73,6 +79,7 @@
 
     <nav class="main-nav" aria-label="Hauptnavigation">
       <a href="#leistungen">Leistungen</a>
+      <a href="#showroom">Showroom</a>
       <a href="#vergleich">Vorher&nbsp;&amp;&nbsp;Nachher</a>
       <a href="#atelier">Atelier</a>
       <a href="#rezensionen">Rezensionen</a>
@@ -96,6 +103,7 @@
 <div class="mobile-menu" id="mobile-menu" hidden>
   <nav aria-label="Mobile Navigation">
     <a href="#leistungen">Leistungen</a>
+    <a href="#showroom">Showroom · Teppichverkauf</a>
     <a href="#vergleich">Vorher &amp; Nachher</a>
     <a href="#atelier">Atelier</a>
     <a href="#rezensionen">Rezensionen</a>
@@ -537,6 +545,44 @@
   </div>
 </section>
 
+<!-- ================= TEPPICHVERKAUF / SHOWROOM ================= -->
+<section class="section shop" id="showroom">
+  <div class="container shop-wrap">
+    <div class="shop-media reveal">
+      <figure class="shop-img-main"><img src="assets/img/rug-red.jpg" alt="Handgeknüpfter Orientteppich im Showroom von Fabio Soltani" loading="lazy" decoding="async"></figure>
+      <figure class="shop-img-sub"><img src="assets/img/rug-tile.jpg" alt="Detailaufnahme eines Teppichmusters" loading="lazy" decoding="async"></figure>
+      <div class="shop-badge">
+        <span class="shop-badge-eb">Showroom</span>
+        <strong>Wädenswil</strong>
+        <span class="shop-badge-sub">Persönlich beraten vor Ort</span>
+      </div>
+    </div>
+
+    <div class="shop-copy reveal">
+      <p class="eyebrow eyebrow-dark">Teppichverkauf</p>
+      <h2 class="display heading">Handverlesene<br>Teppiche</h2>
+      <p class="section-intro">Neben Pflege und Reparatur führen wir eine sorgfältig kuratierte Auswahl an Orient- und Designerteppichen. Stöbern, fühlen, vergleichen – und sich in Ruhe persönlich beraten lassen, direkt vor Ort in unserem Showroom in Wädenswil.</p>
+      <ul class="shop-points">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Kuratierte Orient- &amp; Designerteppiche</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Persönliche Beratung im Showroom</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>Echte Handarbeit zu fairen Preisen</li>
+      </ul>
+      <div class="shop-visit">
+        <svg class="shop-pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <div>
+          <strong>Showroom Wädenswil</strong>
+          <span>Mo–Fr · 08:00–18:00 Uhr · Besuch nach Vereinbarung</span>
+        </div>
+      </div>
+      <div class="shop-cta">
+        <a class="btn btn-gold" href="#termin">Showroom besuchen
+          <svg viewBox="0 0 24 24" class="ico-arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost-light" href="tel:+41443821769">Anrufen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ================= TERMINBUCHUNG ================= -->
 <section class="section-dark booking" id="termin">
   <div class="container booking-grid">
@@ -710,6 +756,7 @@
       <a href="#leistungen">Polsterei</a>
       <a href="#leistungen">Teppichreinigung</a>
       <a href="#leistungen">Teppichreparatur</a>
+      <a href="#showroom">Teppichverkauf</a>
       <a href="#vergleich">Vorher &amp; Nachher</a>
     </div>
 
@@ -726,7 +773,7 @@
       <h3>Kontakt</h3>
       <a href="tel:+41443821769">+41&nbsp;44&nbsp;382&nbsp;17&nbsp;69</a>
       <span>Mo–Fr · 08:00–18:00 Uhr</span>
-      <span>Showroom nach Vereinbarung</span>
+      <span>Showroom Wädenswil · nach Vereinbarung</span>
       <a class="btn btn-gold btn-sm" href="#termin">Termin vereinbaren</a>
     </div>
   </div>
