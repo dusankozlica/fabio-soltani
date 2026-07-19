@@ -517,14 +517,12 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .shop-badge-eb{font-family:var(--font-d);font-size:.64rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
 .shop-badge strong{font-family:var(--font-d);font-size:1.35rem;line-height:1;letter-spacing:.01em}
 .shop-badge-sub{font-family:var(--font-t);font-size:.74rem;color:var(--on-dark-mut)}
-.shop-offer-lead{margin:clamp(2.4rem,4.5vw,3.4rem) 0 1.3rem;font-family:var(--font-d);font-weight:600;font-size:.8rem;letter-spacing:.2em;text-transform:uppercase;color:var(--on-cream-mut);text-align:center}
-.shop-offer{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1rem,1.8vw,1.4rem)}
-.shop-tile{background:var(--cream-2);border:1px solid var(--cream-line);border-radius:var(--r-lg);padding:1.7rem 1.5rem;transition:transform .35s var(--ease),border-color .35s,box-shadow .35s}
-.shop-tile:hover{transform:translateY(-5px);border-color:rgba(199,162,78,.5);box-shadow:0 26px 54px -34px rgba(40,28,10,.5)}
-.shop-tile-ic{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:12px;background:rgba(199,162,78,.14);margin-bottom:1rem}
-.shop-tile-ic svg{width:24px;height:24px;fill:none;stroke:var(--gold-deep);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.shop-tile h3{font-family:var(--font-d);font-weight:600;font-size:1.12rem;color:var(--on-cream);margin-bottom:.5rem}
-.shop-tile p{font-family:var(--font-t);color:var(--on-cream-mut);font-size:.92rem;line-height:1.55}
+.shop-mtm{margin-top:clamp(2.6rem,5vw,4rem)}
+.shop-mtm-title{font-family:var(--font-d);font-weight:700;font-size:clamp(1.5rem,2.3vw,2rem);line-height:1;letter-spacing:-.01em;color:var(--on-cream);margin-bottom:clamp(1.5rem,2.8vw,2.2rem);text-wrap:balance}
+.shop-specs{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1.6rem,3vw,3rem) clamp(1.6rem,2.6vw,2.6rem)}
+.shop-spec{padding-top:1.15rem;border-top:1px solid rgba(169,133,58,.45)}
+.shop-spec h4{font-family:var(--font-d);font-weight:600;font-size:1.16rem;color:var(--on-cream);letter-spacing:.005em;margin-bottom:.55rem}
+.shop-spec p{font-family:var(--font-t);color:var(--on-cream-mut);font-size:.94rem;line-height:1.6}
 .shop-visit-bar{display:flex;align-items:center;justify-content:space-between;gap:1.6rem;flex-wrap:wrap;margin-top:clamp(2.4rem,4.5vw,3.4rem);padding:clamp(1.5rem,2.6vw,2.1rem) clamp(1.5rem,3vw,2.6rem);background:var(--ink);color:var(--on-dark);border-radius:var(--r-lg)}
 .sv-loc{display:flex;align-items:center;gap:1rem;min-width:0}
 .sv-loc .shop-pin{flex:none;width:30px;height:30px;fill:none;stroke:var(--gold);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
@@ -535,10 +533,10 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
   .shop-gallery{grid-template-columns:1fr 1fr;grid-template-rows:auto auto;aspect-ratio:auto;max-height:none}
   .shop-g1{grid-column:1 / span 2;aspect-ratio:16/10}
   .shop-g2,.shop-g3{aspect-ratio:4/3}
-  .shop-offer{grid-template-columns:1fr 1fr}
+  .shop-specs{grid-template-columns:1fr 1fr}
   .shop-visit-bar{flex-direction:column;align-items:flex-start}
 }
-@media(max-width:520px){.shop-offer{grid-template-columns:1fr}}
+@media(max-width:520px){.shop-specs{grid-template-columns:1fr}}
 
 /* Magazin card grid */
 .mag-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.6rem,2.6vw,2.4rem);margin-top:clamp(2.4rem,4.5vw,3.4rem)}
