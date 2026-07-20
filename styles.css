@@ -139,8 +139,8 @@ a:focus-visible,button:focus-visible,.btn:focus-visible,.nav-toggle:focus-visibl
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.site-header.scrolled{background:rgba(14,11,8,.96)}}
 .header-inner{display:flex;align-items:center;justify-content:space-between;height:78px;gap:1.5rem;transition:height .28s var(--ease)}
 
-.brand{display:inline-flex;align-items:center;color:var(--on-dark)}
-.brand-logo{height:50px;width:auto;display:block;transition:height .28s var(--ease)}
+.brand{display:inline-flex;align-items:center;color:var(--on-dark);flex-shrink:0}
+.brand-logo{height:50px;width:auto;max-width:none;display:block;transition:height .28s var(--ease)}
 .brand-logo-footer{height:76px}
 .brand-tag{font-size:.66rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-2);padding-left:.85rem;margin-left:.1rem;border-left:1px solid rgba(199,162,78,.4);white-space:nowrap}
 
