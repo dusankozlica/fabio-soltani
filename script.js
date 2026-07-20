@@ -17,9 +17,11 @@
   var $ = function (s, c) { return (c || document).querySelector(s); };
   var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var lenis = null;   // smooth-scroll instance (set once Lenis loads)
 
   document.addEventListener('DOMContentLoaded', function () {
     setYear();
+    smoothScroll();
     header();
     activeNav();
     mobileMenu();
@@ -32,6 +34,30 @@
     booking();
     heritageFit();
   });
+
+  /* ---------- smooth momentum scrolling (Lenis) ----------
+     Loaded dynamically so the page still works if the CDN is blocked; on
+     reduced-motion we skip it entirely and keep native scrolling. */
+  function smoothScroll() {
+    if (reduce) return;
+    var css = 'html.lenis,html.lenis body{height:auto}'
+      + '.lenis.lenis-smooth{scroll-behavior:auto!important}'
+      + '.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}'
+      + '.lenis.lenis-stopped{overflow:hidden}';
+    var st = document.createElement('style'); st.textContent = css;
+    document.head.appendChild(st);
+    var s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/lenis@1.1.19/dist/lenis.min.js';
+    s.onload = function () {
+      if (!window.Lenis) return;
+      document.documentElement.style.scrollBehavior = 'auto';
+      lenis = new window.Lenis({ lerp: 0.085, wheelMultiplier: 1, smoothWheel: true, touchMultiplier: 1.6 });
+      var raf = function (t) { lenis.raf(t); requestAnimationFrame(raf); };
+      requestAnimationFrame(raf);
+    };
+    s.onerror = function () { lenis = null; };   // fall back to native scroll
+    document.head.appendChild(s);
+  }
 
   /* ---------- heritage panorama: scale the fixed stage to fit the framed panel ---------- */
   function heritageFit() {
@@ -83,6 +109,7 @@
     var animating = false;
     var scrollToY = function (endY) {
       endY = Math.max(0, Math.round(endY));
+      if (lenis) { lenis.scrollTo(endY, { offset: 0 }); return; }   // smooth via Lenis
       if (reduce) { window.scrollTo({ top: endY, behavior: 'instant' }); return; }
       var startY = window.pageYOffset;
       var dist = endY - startY;
@@ -170,11 +197,13 @@
         menu.hidden = false;
         requestAnimationFrame(function () { menu.classList.add('open'); });
         document.body.style.overflow = 'hidden';
+        if (lenis) lenis.stop();
         btn.setAttribute('aria-label', 'Menü schliessen');
         var first = $$('a', menu)[0]; if (first) first.focus();
       } else {
         menu.classList.remove('open');
         document.body.style.overflow = '';
+        if (lenis) lenis.start();
         btn.setAttribute('aria-label', 'Menü öffnen');
         if (document.activeElement && menu.contains(document.activeElement)) btn.focus();
         setTimeout(function () { if (btn.getAttribute('aria-expanded') === 'false') menu.hidden = true; }, 360);
