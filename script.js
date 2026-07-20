@@ -23,6 +23,7 @@
     header();
     activeNav();
     mobileMenu();
+    anchorScroll();
     reveal();
     trustReveal();
     counters();
@@ -69,6 +70,69 @@
     var onScroll = function () { h.classList.toggle('scrolled', window.scrollY > 24); };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  /* ---------- reliable in-page anchor scrolling ----------
+     Native/CSS `scroll-behavior:smooth` anchor jumps are unreliable on this
+     page (long-distance smooth scrolls get cancelled, so nav links appeared
+     to do nothing). We drive the scroll ourselves with a rAF easing loop that
+     uses instant per-frame scrolls — which always works — and keep the smooth
+     feel. Also honours the fixed-header offset so section tops aren't hidden. */
+  function anchorScroll() {
+    var headerEl = $('.site-header');
+    var animating = false;
+    var scrollToY = function (endY) {
+      endY = Math.max(0, Math.round(endY));
+      if (reduce) { window.scrollTo({ top: endY, behavior: 'instant' }); return; }
+      var startY = window.pageYOffset;
+      var dist = endY - startY;
+      if (!dist) return;
+      var dur = Math.min(1000, Math.max(420, Math.abs(dist) * 0.42));
+      var t0 = null;
+      animating = true;
+      var ease = function (p) { return 1 - Math.pow(1 - p, 3); };
+      var step = function (ts) {
+        if (t0 === null) t0 = ts;
+        var p = Math.min((ts - t0) / dur, 1);
+        window.scrollTo({ top: Math.round(startY + dist * ease(p)), behavior: 'instant' });
+        if (p < 1) requestAnimationFrame(step); else animating = false;
+      };
+      requestAnimationFrame(step);
+      // Safety net: if rAF never advances the scroll (rare environments),
+      // jump straight to the target so the link always works.
+      setTimeout(function () {
+        if (Math.abs(window.pageYOffset - startY) < 2) {
+          window.scrollTo({ top: endY, behavior: 'instant' });
+          animating = false;
+        }
+      }, 140);
+    };
+    var targetTop = function (href) {
+      if (href === '#top') return 0;
+      var el = document.getElementById(href.slice(1));
+      if (!el) return null;
+      var offset = headerEl ? headerEl.getBoundingClientRect().height : 0;
+      return window.pageYOffset + el.getBoundingClientRect().top - offset - 6;
+    };
+    $$('a[href^="#"]').forEach(function (a) {
+      var href = a.getAttribute('href') || '';
+      if (href.length < 2) return;               // skip bare "#"
+      a.addEventListener('click', function (e) {
+        var top = targetTop(href);
+        if (top === null) return;                 // no in-page target -> default
+        e.preventDefault();
+        scrollToY(top);
+        if (history.pushState) history.pushState(null, '', href);
+      });
+    });
+    // Direct links that arrive with a hash (e.g. .../#showroom): the native
+    // jump is unreliable here too, so re-run it ourselves once laid out.
+    if (location.hash && location.hash.length > 1) {
+      window.addEventListener('load', function () {
+        var top = targetTop(location.hash);
+        if (top !== null) setTimeout(function () { if (!animating) scrollToY(top); }, 60);
+      });
+    }
   }
 
   /* ---------- active section in nav ---------- */
