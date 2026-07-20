@@ -137,7 +137,8 @@ a:focus-visible,button:focus-visible,.btn:focus-visible,.nav-toggle:focus-visibl
 .site-header.scrolled::before{opacity:0}
 .site-header.scrolled{background:rgba(14,11,8,.82);backdrop-filter:blur(14px);border-bottom-color:rgba(199,162,78,.3)}
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.site-header.scrolled{background:rgba(14,11,8,.96)}}
-.header-inner{display:flex;align-items:center;justify-content:space-between;height:78px;gap:1.5rem;transition:height .28s var(--ease)}
+.site-header>.container{max-width:1420px}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:78px;gap:1.75rem;transition:height .28s var(--ease)}
 
 .brand{display:inline-flex;align-items:center;color:var(--on-dark);flex-shrink:0}
 .brand-logo{height:50px;width:auto;max-width:none;display:block;transition:height .28s var(--ease)}
@@ -259,7 +260,8 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
    SERVICES
    ========================================================= */
 .services .section-head{margin-bottom:clamp(2.4rem,5vw,3.6rem)}
-.service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
+.service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.3rem}
+@media (max-width:1080px){.service-grid{grid-template-columns:repeat(2,1fr)}.service-body{padding:0 2rem 2rem}.service-card h3{font-size:1.7rem;letter-spacing:.04em}}
 .service-card{position:relative;background:var(--cream-2);border:1px solid var(--cream-line);border-radius:var(--r-lg);overflow:hidden;transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .4s}
 .service-card:hover{transform:translateY(-6px);box-shadow:0 30px 60px -34px rgba(40,28,10,.5);border-color:#d8cdb6}
 .service-media{position:relative;margin:0;aspect-ratio:16/10;overflow:hidden}
@@ -267,10 +269,10 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .service-card:hover .service-media img{transform:scale(1.07)}
 .service-media::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(20,14,8,.55),rgba(20,14,8,0) 48%)}
 .service-num{position:absolute;top:.8rem;right:1.1rem;z-index:2;font-family:var(--font-d);font-size:1.5rem;color:#fff;letter-spacing:.05em;opacity:.92;text-shadow:0 2px 8px rgba(0,0,0,.4)}
-.service-body{padding:0 2rem 2rem}
+.service-body{padding:0 1.5rem 1.75rem}
 .service-chip{display:grid;place-items:center;width:54px;height:54px;border-radius:50%;background:var(--gold-grad);box-shadow:0 10px 22px -8px rgba(40,28,10,.6);position:relative;z-index:2;margin-top:-27px;margin-bottom:1.1rem}
 .service-chip svg{width:27px;height:27px;fill:none;stroke:#241a09;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
-.service-card h3{font-family:var(--font-d);font-size:1.7rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:.7rem;color:var(--on-cream)}
+.service-card h3{font-family:var(--font-d);font-size:1.38rem;letter-spacing:.02em;text-transform:uppercase;margin-bottom:.7rem;color:var(--on-cream)}
 .service-card p{color:var(--on-cream-mut);font-size:.98rem;margin-bottom:1.5rem}
 .card-link{display:inline-flex;align-items:center;gap:.5em;font-size:.76rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--on-cream);padding-bottom:5px;border-bottom:1px solid var(--gold);transition:gap .3s,color .3s}
 .card-link svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
