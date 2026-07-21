@@ -310,7 +310,7 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .compare-note{font-size:.82rem;color:var(--on-cream-mut);opacity:.75;margin:0}
 
 .ba-item{margin:0;display:flex;flex-direction:column}
-.ba{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:3/4;background:#1c1c1e;--pos:50%;user-select:none;border:1px solid var(--cream-line);box-shadow:0 30px 60px -38px rgba(40,28,10,.55);touch-action:pan-y}
+.ba{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3;background:#1c1c1e;--pos:50%;user-select:none;border:1px solid var(--cream-line);box-shadow:0 30px 60px -38px rgba(40,28,10,.55);touch-action:pan-y}
 .ba-feature{aspect-ratio:16/12}
 .ba-after,.ba-before{position:absolute;inset:0}
 .ba-after img,.ba-before img{width:100%;height:100%;object-fit:cover}
