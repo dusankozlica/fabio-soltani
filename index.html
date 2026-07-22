@@ -30,7 +30,7 @@
 <link rel="preload" as="font" type="font/woff" href="assets/fonts/GoshaSans-Bold.woff" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="styles.css?v=130">
+<link rel="stylesheet" href="styles.css?v=132">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -79,11 +79,11 @@
 
     <nav class="main-nav" aria-label="Hauptnavigation">
       <a href="#leistungen">Leistungen</a>
-      <a href="#showroom">Showroom</a>
+      <a href="#atelier">Atelier</a>
       <a href="#vergleich">Vorher&nbsp;&amp;&nbsp;Nachher</a>
-      <a href="#atelier">Über uns</a>
+      <a href="#geschichte">Über uns</a>
       <a href="#rezensionen">Rezensionen</a>
-      <a href="#magazin">Magazin</a>
+      <a href="#ratgeber">Ratgeber</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
 
@@ -103,12 +103,11 @@
 <div class="mobile-menu" id="mobile-menu" hidden>
   <nav aria-label="Mobile Navigation">
     <a href="#leistungen">Leistungen</a>
-    <a href="#showroom">Showroom · Teppichverkauf</a>
+    <a href="#atelier">Atelier · Teppichverkauf</a>
     <a href="#vergleich">Vorher &amp; Nachher</a>
-    <a href="#atelier">Über uns</a>
+    <a href="#geschichte">Über uns</a>
     <a href="#rezensionen">Rezensionen</a>
-    <a href="#magazin">Magazin</a>
-    <a href="#social">Instagram</a>
+    <a href="#ratgeber">Ratgeber</a>
     <a href="#kontakt">Kontakt</a>
     <a class="btn btn-gold" href="#termin">Termin vereinbaren</a>
     <a class="mobile-call" href="tel:+41443821769">Oder anrufen: +41&nbsp;44&nbsp;382&nbsp;17&nbsp;69</a>
@@ -180,9 +179,9 @@
 
   <!-- data-clip = kurze Vorschau, wird erst beim Hover geladen -->
   <div class="svc-row">
-    <a class="svc-card reveal" href="#showroom" data-clip="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmVWMu8qfChuhpbZAAwbcBzJN9/f9d6b893-99cd-429a-9a6b-b5003ed1e0fa.mp4">
+    <a class="svc-card reveal" href="#atelier" data-clip="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmVWMu8qfChuhpbZAAwbcBzJN9/f9d6b893-99cd-429a-9a6b-b5003ed1e0fa.mp4">
       <div class="svc-media">
-        <img src="assets/img/rug-red.jpg" alt="Handgeknüpfter Orientteppich im Showroom" loading="lazy" decoding="async">
+        <img src="assets/img/rug-red.jpg" alt="Handgeknüpfter Orientteppich im Atelier" loading="lazy" decoding="async">
         <span class="svc-scrim" aria-hidden="true"></span>
       </div>
       <div class="svc-preview" aria-hidden="true">
@@ -406,8 +405,8 @@
   </div>
 </section>
 
-<!-- ================= ATELIER / HERITAGE ================= -->
-<section class="section heritage" id="atelier">
+<!-- ================= UNSERE GESCHICHTE ================= -->
+<section class="section heritage" id="geschichte">
   <div class="container ch-head-block reveal">
     <p class="eyebrow eyebrow-dark">Unsere Geschichte</p>
     <h2 class="ch-h2">Eine kurze Zeitreise durch <span class="hl-gold">4 Generationen</span></h2>
@@ -415,9 +414,34 @@
   </div>
   <div class="ch-scroller">
     <div class="ch-stage">
-      <img class="ch-el ch-grand" src="assets/img/heritage/grand.webp" alt="1972 – Der Grossvater: der Anfang einer Handwerksgeschichte" loading="lazy" decoding="async">
-      <img class="ch-el ch-handwerk" src="assets/img/heritage/handwerk.webp" alt="Handwerk seit Generationen – das Atelier Soltani" loading="lazy" decoding="async">
-      <img class="ch-el ch-kind" src="assets/img/heritage/kind.webp" alt="Kindheit – die ersten Schritte: zwischen Teppichen aufgewachsen" loading="lazy" decoding="async">
+      <!-- Die Kapiteltexte sind echter HTML-Text in den Schriften der Seite.
+           Im Bild selbst ist der frueher eingebrannte Text per CSS weggeschnitten
+           (--cx / --cy = Schnitt links/oben, als Faktor der sichtbaren Bildbreite). -->
+      <figure class="ch-el ch-fig ch-grand reveal">
+        <figcaption class="ch-cap">
+          <h3 class="ch-cap-h"><span class="ch-year">1972</span><span class="ch-dot" aria-hidden="true"></span>Der Grossvater</h3>
+          <p class="ch-cap-s">Der Anfang einer Handwerksgeschichte.</p>
+        </figcaption>
+        <span class="ch-cut"><img src="assets/img/heritage/grand.webp" alt="Der Grossvater prüft 1972 einen Orientteppich mit der Lupe" loading="lazy" decoding="async"></span>
+      </figure>
+
+      <figure class="ch-el ch-fig ch-handwerk reveal">
+        <figcaption class="ch-cap">
+          <h3 class="ch-cap-h">Handwerk seit<br>Generationen</h3>
+          <p class="ch-cap-s">Was 1972 begann, wird bis heute mit Leidenschaft fortgeführt.</p>
+        </figcaption>
+        <span class="ch-cut"><img src="assets/img/heritage/handwerk.webp" alt="Zeichnung des Ateliergebäudes und historische Aufnahme des Ladens Soltani" loading="lazy" decoding="async"></span>
+      </figure>
+
+      <figure class="ch-el ch-fig ch-kind reveal">
+        <figcaption class="ch-cap">
+          <span class="ch-eb">Kindheit</span>
+          <h3 class="ch-cap-h">Die ersten Schritte</h3>
+          <p class="ch-cap-s">Zwischen Teppichen aufgewachsen. Das Handwerk im Blut.</p>
+        </figcaption>
+        <span class="ch-cut"><img src="assets/img/heritage/kind.webp" alt="Fabio Soltani als Kind vor einem Orientteppich" loading="lazy" decoding="async"></span>
+      </figure>
+
       <img class="ch-el ch-fabio" src="assets/img/heritage/fabio.webp" alt="Fabio Soltani in seinem Atelier" loading="lazy" decoding="async">
       <div class="ch-el ch-today">
         <span class="ch-today-eb">Heute</span>
@@ -479,8 +503,8 @@
   </div>
 </section>
 
-<!-- ================= MAGAZIN / BLOG ================= -->
-<section class="section blog" id="magazin">
+<!-- ================= RATGEBER / BLOG ================= -->
+<section class="section blog" id="ratgeber">
   <div class="container">
     <div class="section-head reveal">
       <h2 class="display heading">Wissen &amp;<br>Pflege</h2>
@@ -513,68 +537,20 @@
   </div>
 </section>
 
-<!-- ================= SOCIAL / REELS ================= -->
-<section class="section-dark social" id="social">
-  <div class="container">
-    <div class="section-head reveal">
-      <h2 class="display heading">Das Handwerk<br>in Bewegung</h2>
-      <p class="section-intro">Echte Projekte, echte Hände, echte Resultate, täglich neu auf unseren Kanälen.</p>
-    </div>
-
-    <div class="reels">
-      <a class="reel reveal" href="https://www.instagram.com/fabiosoltani_interieur/" target="_blank" rel="noopener" aria-label="Reel ansehen: Lederpolsterei">
-        <img src="assets/img/card-polsterei.jpg" alt="Reel: Lederpolsterei im Atelier" loading="lazy" decoding="async">
-        <span class="reel-grad"></span>
-        <span class="reel-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-        <span class="reel-cap">Lederpolsterei</span>
-      </a>
-      <a class="reel reveal" href="https://www.instagram.com/fabiosoltani_interieur/" target="_blank" rel="noopener" aria-label="Reel ansehen: Teppichkunst">
-        <img src="assets/img/rug-tile.jpg" alt="Reel: Orientteppich Detail" loading="lazy" decoding="async">
-        <span class="reel-grad"></span>
-        <span class="reel-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-        <span class="reel-cap">Teppichkunst</span>
-      </a>
-      <a class="reel reveal" href="https://www.instagram.com/fabiosoltani_interieur/" target="_blank" rel="noopener" aria-label="Reel ansehen: Handarbeit">
-        <img src="assets/img/chesterfield.jpg" alt="Reel: Lederpolsterei Detail im Atelier" loading="lazy" decoding="async">
-        <span class="reel-grad"></span>
-        <span class="reel-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-        <span class="reel-cap">Handarbeit</span>
-      </a>
-      <a class="reel reveal" href="https://www.instagram.com/fabiosoltani_interieur/" target="_blank" rel="noopener" aria-label="Reel ansehen: Restauration">
-        <img src="assets/img/rug-red.jpg" alt="Reel: Teppich-Restauration" loading="lazy" decoding="async">
-        <span class="reel-grad"></span>
-        <span class="reel-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
-        <span class="reel-cap">Restauration</span>
-      </a>
-    </div>
-
-    <div class="social-edge reveal">
-      <a class="btn btn-dark" href="https://www.instagram.com/fabiosoltani_interieur/" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" class="ico-social" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
-        @fabiosoltani_interieur
-      </a>
-      <a class="btn btn-ghost-dark" href="https://www.tiktok.com/@fabiosoltani_inte" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" class="ico-social" aria-hidden="true"><path d="M14 4c.4 2.6 2.2 4.4 4.8 4.6v3c-1.8 0-3.4-.5-4.8-1.5v5.5a5.8 5.8 0 1 1-5.8-5.8c.3 0 .6 0 .9.1v3.1a2.8 2.8 0 1 0 2 2.7V4z"/></svg>
-        @fabiosoltani_inte
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ================= TEPPICHVERKAUF / SHOWROOM ================= -->
-<section class="section shop" id="showroom">
+<!-- ================= TEPPICHVERKAUF / ATELIER ================= -->
+<section class="section shop" id="atelier">
   <div class="container">
     <div class="section-head section-head-center reveal">
       <p class="eyebrow eyebrow-dark">Teppichverkauf · Wädenswil</p>
       <h2 class="display heading">Handverlesen<br>&amp; nach Mass</h2>
-      <p class="section-intro">In unserem Showroom in Wädenswil dreht sich alles um den Teppich: eine handverlesene Auswahl hochwertiger Orient- und Designerteppiche zum Kaufen – von der feinen Seide mit Millionen Knoten bis zum robusten Alltagsstück – und Teppiche nach Mass, ganz nach Ihren Vorstellungen. Muster, Farben, Material und Grösse bestimmen Sie; wir beraten Sie persönlich und finden oder knüpfen genau das Stück, das zu Ihrem Raum passt.</p>
+      <p class="section-intro">In unserem Atelier in Wädenswil dreht sich alles um den Teppich: eine handverlesene Auswahl hochwertiger Orient- und Designerteppiche zum Kaufen – von der feinen Seide mit Millionen Knoten bis zum robusten Alltagsstück – und Teppiche nach Mass, ganz nach Ihren Vorstellungen. Muster, Farben, Material und Grösse bestimmen Sie; wir beraten Sie persönlich und finden oder knüpfen genau das Stück, das zu Ihrem Raum passt.</p>
     </div>
 
     <div class="shop-gallery reveal">
       <figure class="shop-g shop-g1">
-        <img src="assets/img/rug-red.jpg" alt="Handgeknüpfter Orientteppich im Showroom in Wädenswil" loading="lazy" decoding="async">
+        <img src="assets/img/rug-red.jpg" alt="Handgeknüpfter Orientteppich im Atelier in Wädenswil" loading="lazy" decoding="async">
         <div class="shop-badge">
-          <span class="shop-badge-eb">Showroom</span>
+          <span class="shop-badge-eb">Atelier</span>
           <strong>Wädenswil</strong>
           <span class="shop-badge-sub">Verkauf · Beratung · nach Mass</span>
         </div>
@@ -609,7 +585,7 @@
       <div class="sv-loc">
         <svg class="shop-pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
         <div>
-          <strong>Teppich-Showroom · Wädenswil</strong>
+          <strong>Teppich-Atelier · Wädenswil</strong>
           <span>Mo–Fr · 08:00–18:00 Uhr · Beratung &amp; Massanfertigung nach Vereinbarung</span>
         </div>
       </div>
@@ -793,24 +769,23 @@
       <a href="#leistungen">Polsterei</a>
       <a href="#leistungen">Teppichreinigung</a>
       <a href="#leistungen">Teppichreparatur</a>
-      <a href="#showroom">Teppichverkauf</a>
+      <a href="#atelier">Teppichverkauf</a>
       <a href="#vergleich">Vorher &amp; Nachher</a>
     </div>
 
     <div class="footer-col">
       <h3>Entdecken</h3>
-      <a href="#atelier">Über uns</a>
+      <a href="#geschichte">Über uns</a>
       <a href="#ablauf">So funktioniert's</a>
       <a href="#rezensionen">Rezensionen</a>
-      <a href="#magazin">Magazin</a>
-      <a href="#social">Instagram</a>
+      <a href="#ratgeber">Ratgeber</a>
     </div>
 
     <div class="footer-col footer-contact">
       <h3>Kontakt</h3>
       <a href="tel:+41443821769">+41&nbsp;44&nbsp;382&nbsp;17&nbsp;69</a>
       <span>Mo–Fr · 08:00–18:00 Uhr</span>
-      <span>Showroom Wädenswil · nach Vereinbarung</span>
+      <span>Atelier Wädenswil · nach Vereinbarung</span>
       <a class="btn btn-gold btn-sm" href="#termin">Termin vereinbaren</a>
     </div>
   </div>
@@ -830,6 +805,6 @@
   <a class="btn btn-gold" href="#termin">Termin</a>
 </div>
 
-<script src="script.js?v=131"></script>
+<script src="script.js?v=132"></script>
 </body>
 </html>
