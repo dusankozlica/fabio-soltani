@@ -34,6 +34,7 @@
     beforeAfter();
     booking();
     heritageFit();
+    photoDrop();
   });
 
   /* ---------- smooth momentum scrolling (Lenis) ----------
@@ -83,6 +84,115 @@
     var t;
     window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(apply, 120); }, { passive: true });
     window.addEventListener('load', apply);
+  }
+
+  /* ---------- Fotos fuer die Offerte: Drag & Drop oder Auswahl ---------- */
+  var photoBox = null;
+  function photoDrop() {
+    var box = $('#drop');
+    if (!box) return;
+    var input = $('#bf-photos'), list = $('#dropList'), note = $('#dropNote');
+    var MAX = 6, MAX_BYTES = 12 * 1024 * 1024;
+    var picked = [];
+
+    var fmtSize = function (b) {
+      return b >= 1048576 ? (b / 1048576).toFixed(1) + ' MB' : Math.max(1, Math.round(b / 1024)) + ' KB';
+    };
+
+    // Auswahl zurueck in das Input schreiben, damit die Dateien bei einem
+    // spaeteren echten Formular-Versand automatisch mitgehen.
+    var syncInput = function () {
+      if (!window.DataTransfer) return;
+      try {
+        var dt = new DataTransfer();
+        picked.forEach(function (f) { dt.items.add(f); });
+        input.files = dt.files;
+      } catch (e) {}
+    };
+
+    var say = function (txt, warn) {
+      if (!note) return;
+      note.textContent = txt || '';
+      note.hidden = !txt;
+      note.classList.toggle('warn', !!warn);
+    };
+
+    var render = function () {
+      list.innerHTML = '';
+      list.hidden = !picked.length;
+      var total = 0;
+      picked.forEach(function (f, i) {
+        total += f.size;
+        var li = document.createElement('li');
+        li.className = 'drop-item';
+        var img = document.createElement('img');
+        img.alt = '';
+        img.src = URL.createObjectURL(f);
+        img.addEventListener('load', function () { URL.revokeObjectURL(img.src); });
+        var cap = document.createElement('span');
+        cap.className = 'drop-cap';
+        cap.textContent = fmtSize(f.size);
+        var del = document.createElement('button');
+        del.type = 'button';
+        del.className = 'drop-del';
+        del.setAttribute('aria-label', 'Foto ' + (i + 1) + ' entfernen');
+        del.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+        // ueber die Datei selbst loeschen, nicht ueber den Index -
+        // sonst zeigt ein alter Button nach dem Neuaufbau auf das falsche Foto
+        del.addEventListener('click', function () {
+          var k = picked.indexOf(f);
+          if (k > -1) picked.splice(k, 1);
+          syncInput(); render();
+        });
+        li.appendChild(img); li.appendChild(cap); li.appendChild(del);
+        list.appendChild(li);
+      });
+      say(picked.length ? picked.length + (picked.length === 1 ? ' Foto' : ' Fotos') + ' \u00b7 ' + fmtSize(total) : '');
+    };
+
+    var add = function (files) {
+      var full = 0, tooBig = 0, wrong = 0;
+      [].forEach.call(files, function (f) {
+        if (picked.length >= MAX) { full++; return; }
+        if (!/^image\//.test(f.type)) { wrong++; return; }
+        if (f.size > MAX_BYTES) { tooBig++; return; }
+        var dup = picked.some(function (p) { return p.name === f.name && p.size === f.size; });
+        if (!dup) picked.push(f);
+      });
+      syncInput();
+      render();
+      if (tooBig) say('Ein Foto ist gr\u00f6sser als 12 MB und wurde nicht \u00fcbernommen.', true);
+      else if (full) say('Mehr als ' + MAX + ' Fotos sind nicht m\u00f6glich.', true);
+      else if (wrong) say('Bitte nur Bilddateien ausw\u00e4hlen.', true);
+    };
+
+    input.addEventListener('change', function () { add(input.files); });
+    ['dragenter', 'dragover'].forEach(function (ev) {
+      box.addEventListener(ev, function (e) { e.preventDefault(); box.classList.add('over'); });
+    });
+    ['dragleave', 'dragend', 'drop'].forEach(function (ev) {
+      box.addEventListener(ev, function (e) { e.preventDefault(); box.classList.remove('over'); });
+    });
+    box.addEventListener('drop', function (e) {
+      if (e.dataTransfer && e.dataTransfer.files) add(e.dataTransfer.files);
+    });
+
+    photoBox = {
+      count: function () { return picked.length; },
+      names: function () { return picked.map(function (f) { return f.name; }); },
+      clear: function () { picked = []; syncInput(); render(); },
+      show: function () {
+        box.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+        box.classList.add('pulse');
+        setTimeout(function () { box.classList.remove('pulse'); }, 1600);
+      }
+    };
+
+    // "Fotos senden"-Buttons springen zum Formular und heben die Ablage hervor
+    document.addEventListener('click', function (e) {
+      var t = e.target.closest && e.target.closest('[data-jump="fotos"]');
+      if (t && photoBox) setTimeout(photoBox.show, 620);
+    });
   }
 
   /* ---------- year ---------- */
@@ -624,7 +734,10 @@
         'Name: ' + name.value.trim() + '\n' +
         'Telefon: ' + phone.value.trim() + '\n' +
         'E-Mail: ' + email.value.trim() + '\n' +
-        'Nachricht: ' + (msg || 'keine Angabe') + '\n';
+        'Nachricht: ' + (msg || 'keine Angabe') + '\n' +
+        'Fotos: ' + (photoBox && photoBox.count()
+          ? photoBox.count() + ' St\u00fcck \u2013 bitte dieser E-Mail anh\u00e4ngen: ' + photoBox.names().join(', ')
+          : 'keine') + '\n';
       var mailto = 'mailto:' + BOOKING_EMAIL +
         '?subject=' + encodeURIComponent(subject) +
         '&body=' + encodeURIComponent(body);
@@ -638,6 +751,15 @@
         ' um ' + selectedSlot + ' Uhr</strong> (' + type + ') bei uns ankommt, senden Sie bitte die vorbereitete ' +
         'E-Mail ab, oder rufen Sie uns direkt an.';
 
+      var sPhotos = $('#successPhotos');
+      if (sPhotos) {
+        var n = photoBox ? photoBox.count() : 0;
+        sPhotos.hidden = !n;
+        sPhotos.textContent = n
+          ? 'Wichtig: H\u00e4ngen Sie Ihre ' + n + (n === 1 ? ' Foto' : ' Fotos') + ' der E-Mail noch an, bevor Sie sie abschicken.'
+          : '';
+      }
+
       form.hidden = true;
       success.hidden = false;
       success.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
@@ -648,6 +770,7 @@
     var resetBtn = $('#successReset');
     if (resetBtn) resetBtn.addEventListener('click', function () {
       form.reset();
+      if (photoBox) photoBox.clear();
       selectedDate = null; selectedSlot = null;
       slotWrap.hidden = true;
       view = new Date(minMonth.getFullYear(), minMonth.getMonth(), 1);
