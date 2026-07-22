@@ -659,15 +659,6 @@
     renderCal();
   }
 
-  /* ---------- atelier play buttons -> jump to reels ---------- */
-  document.addEventListener('click', function (e) {
-    var play = e.target.closest && e.target.closest('.atelier-play');
-    if (play) {
-      var social = document.getElementById('social');
-      if (social) social.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
-    }
-  });
-
   /* ---------- FAQ: golden-angle spiral background + search filter ---------- */
   (function initFaq() {
     var host = document.getElementById('faqSpiral');
