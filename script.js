@@ -326,7 +326,7 @@
      Seite nicht vier Clips im Voraus zieht. Auf Touch-Geraeten passiert nichts:
      dort gibt es keinen Hover, und vier Videos waeren reine Datenverschwendung. */
   function serviceClips() {
-    var cards = $('.svc-card[data-clip]');
+    var cards = $$('.svc-card[data-clip]');
     if (!cards.length) return;
     var canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     if (!canHover || reduce) return;
