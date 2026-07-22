@@ -30,7 +30,7 @@
 <link rel="preload" as="font" type="font/woff" href="assets/fonts/GoshaSans-Bold.woff" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="styles.css?v=132">
+<link rel="stylesheet" href="styles.css?v=133">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -262,6 +262,18 @@
         <span class="svc-bar" aria-hidden="true"><i></i></span>
       </div>
     </a>
+  </div>
+
+  <div class="container svc-cta reveal">
+    <div class="svc-cta-in">
+      <div class="svc-cta-txt">
+        <h3>Polstermöbel neu beziehen oder reparieren?</h3>
+        <p>Schicken Sie uns ein paar Fotos Ihres Möbels – wir schauen es uns an und melden uns mit einer unverbindlichen Offerte.</p>
+      </div>
+      <a class="btn btn-gold" href="#termin" data-jump="fotos">Fotos senden &amp; Offerte erhalten
+        <svg viewBox="0 0 24 24" class="ico-arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
   </div>
 
   <div class="container svc-foot reveal">
@@ -676,6 +688,19 @@
           </div>
         </div>
 
+        <div class="bf-field bf-photo-field">
+          <label class="bf-label" for="bf-photos">Fotos <span class="opt">(optional – beschleunigt Ihre Offerte)</span></label>
+          <!-- Die Bilder bleiben vorerst im Browser und werden in der vorbereiteten E-Mail
+               aufgelistet. Sobald der Mail-/Formulardienst steht, hier den Endpunkt anbinden. -->
+          <div class="drop" id="drop">
+            <input class="drop-input" id="bf-photos" name="photos" type="file" accept="image/*" multiple>
+            <svg class="drop-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 16.5V18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1.5"/><path d="M12 15V4"/><path d="M8 8l4-4 4 4"/></svg>
+            <p class="drop-text"><strong>Fotos hierher ziehen</strong><span>oder tippen, um sie auszuwählen · max. 6 Bilder</span></p>
+          </div>
+          <ul class="drop-list" id="dropList" hidden></ul>
+          <p class="drop-note" id="dropNote" hidden></p>
+        </div>
+
         <p class="bf-error" id="bfError" role="alert" aria-live="assertive" hidden></p>
         <button class="btn btn-gold btn-block" type="submit">Termin anfragen
           <svg viewBox="0 0 24 24" class="ico-arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
@@ -687,6 +712,7 @@
         <div class="success-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg></div>
         <h3>Fast geschafft</h3>
         <p id="successText">Senden Sie die vorbereitete E-Mail ab oder rufen Sie uns an &ndash; dann ist Ihre Anfrage bei uns.</p>
+        <p class="success-photos" id="successPhotos" hidden></p>
         <div class="success-actions">
           <a class="btn btn-gold" id="successMail" href="#">Anfrage per E-Mail senden</a>
           <a class="btn btn-ghost-light" id="successCall" href="tel:+41443821769">Anrufen</a>
@@ -805,6 +831,6 @@
   <a class="btn btn-gold" href="#termin">Termin</a>
 </div>
 
-<script src="script.js?v=132"></script>
+<script src="script.js?v=133"></script>
 </body>
 </html>
