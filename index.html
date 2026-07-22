@@ -30,7 +30,7 @@
 <link rel="preload" as="font" type="font/woff" href="assets/fonts/GoshaSans-Bold.woff" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="styles.css?v=124">
+<link rel="stylesheet" href="styles.css?v=130">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -168,70 +168,107 @@
 </section>
 
 <!-- ================= LEISTUNGEN ================= -->
-<section class="section services" id="leistungen">
-  <div class="container">
-    <div class="section-head reveal">
-      <h2 class="display heading">Vier Kompetenzen<br>Ein Anspruch</h2>
-      <p class="section-intro">
-        Wir konzentrieren uns auf das, was wir am besten können und perfektionieren
-        jeden Handgriff. Vom durchgesessenen Lieblingssofa über den handgeknüpften
-        Orientteppich bis zum Stück nach Mass.
-      </p>
-    </div>
+<section class="section-dark svc" id="leistungen">
+  <div class="container svc-head reveal">
+    <h2 class="display heading-light">Vier Kompetenzen<br>Ein Anspruch</h2>
+    <p class="section-intro">
+      Wir konzentrieren uns auf das, was wir am besten können und perfektionieren
+      jeden Handgriff. Vom durchgesessenen Lieblingssofa über den handgeknüpften
+      Orientteppich bis zum Stück nach Mass.
+    </p>
+  </div>
 
-    <div class="service-grid">
-      <article class="service-card service-card-feature reveal">
-        <figure class="service-media">
-          <img src="assets/img/work-polsterei.jpg" alt="Polsterer bei der Arbeit an einem Sofa" loading="lazy" decoding="async">
-        </figure>
-        <div class="service-body">
-          <span class="service-chip"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 22c0-3 1-5 4-5h16c3 0 4 2 4 5v9H12z"/><path d="M12 22c-2.4 0-4 1.6-4 4v4h4M36 22c2.4 0 4 1.6 4 4v4h-4M13 31v4M35 31v4"/></svg></span>
-          <h3>Polsterei</h3>
-          <p>Meisterhafte Neupolsterung und Restauration für zeitlose Eleganz und höchsten Sitzkomfort, mit über 10'000 Stoffen und Ledern.</p>
-          <a class="card-link" href="#vergleich">Mehr erfahren
-            <svg viewBox="0 0 24 24" class="ico-arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-      </article>
+  <!-- data-clip = kurze Vorschau, wird erst beim Hover geladen -->
+  <div class="svc-row">
+    <a class="svc-card reveal" href="#showroom" data-clip="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmVWMu8qfChuhpbZAAwbcBzJN9/f9d6b893-99cd-429a-9a6b-b5003ed1e0fa.mp4">
+      <div class="svc-media">
+        <img src="assets/img/rug-red.jpg" alt="Handgeknüpfter Orientteppich im Showroom" loading="lazy" decoding="async">
+        <span class="svc-scrim" aria-hidden="true"></span>
+      </div>
+      <div class="svc-preview" aria-hidden="true">
+        <span class="svc-pv-label">Vorschau</span>
+        <span class="svc-pv-time">0:00</span>
+      </div>
+      <div class="svc-body">
+        <p class="svc-kicker"><span class="svc-num">01</span>
+          <svg class="svc-ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M26 9H15a2 2 0 0 0-2 2v11l15 15 13-13z"/><circle cx="20" cy="17" r="2.2"/></svg>
+        </p>
+        <h3 class="svc-title">Teppichverkauf</h3>
+        <p class="svc-text">Handverlesene Orient- und Designerteppiche –<br>feine Seide, Millionen Knoten, auch nach Mass.</p>
+        <span class="svc-more">Mehr erfahren
+          <svg viewBox="0 0 24 24" class="ico-arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <span class="svc-bar" aria-hidden="true"><i></i></span>
+      </div>
+    </a>
 
-      <article class="service-card reveal">
-        <figure class="service-media">
-          <img src="assets/img/work-reinigung.jpg" alt="Teppich wird mit Bürste und Schaum gereinigt" loading="lazy" decoding="async">
-        </figure>
-        <div class="service-body">
-          <span class="service-chip"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M16 10h18l-2 26H18z"/><path d="M16 10c-3.3 0-6 2.7-6 6v18c0 1.1.9 2 2 2h6"/><path d="M22 17h6M21 23h8M22 29h6"/></svg></span>
-          <h3>Teppichreinigung</h3>
-          <p>Schonende, gründliche Tiefenreinigung für strahlende Farben und langanhaltende Frische, von der Maschine bis zur seidenen Handarbeit.</p>
-          <a class="card-link" href="#vergleich">Mehr erfahren
-            <svg viewBox="0 0 24 24" class="ico-arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-      </article>
+    <a class="svc-card reveal" href="#vergleich" data-clip="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmVWMu8qfChuhpbZAAwbcBzJN9/8afaf9c8-1174-410d-bbe1-9dca5c4788d2.mp4">
+      <div class="svc-media">
+        <img src="assets/img/work-polsterei.jpg" alt="Polsterer bei der Arbeit an einem Sofa" loading="lazy" decoding="async">
+        <span class="svc-scrim" aria-hidden="true"></span>
+      </div>
+      <div class="svc-preview" aria-hidden="true">
+        <span class="svc-pv-label">Vorschau</span>
+        <span class="svc-pv-time">0:00</span>
+      </div>
+      <div class="svc-body">
+        <p class="svc-kicker"><span class="svc-num">02</span>
+          <svg class="svc-ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M12 22c0-3 1-5 4-5h16c3 0 4 2 4 5v9H12z"/><path d="M12 22c-2.4 0-4 1.6-4 4v4h4M36 22c2.4 0 4 1.6 4 4v4h-4M13 31v4M35 31v4"/></svg>
+        </p>
+        <h3 class="svc-title">Polsterei</h3>
+        <p class="svc-text">Meisterhafte Neubezüge und Restauration –<br>über 10'000 Stoffe und Leder zur Auswahl.</p>
+        <span class="svc-more">Mehr erfahren
+          <svg viewBox="0 0 24 24" class="ico-arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <span class="svc-bar" aria-hidden="true"><i></i></span>
+      </div>
+    </a>
 
-      <article class="service-card reveal">
-        <figure class="service-media">
-          <img src="assets/img/work-reparatur.jpg" alt="Handarbeit an einem Teppich auf dem Webstuhl" loading="lazy" decoding="async">
-        </figure>
-        <div class="service-body">
-          <span class="service-chip"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="11" y="11" width="26" height="26" rx="1"/><path d="M11 18h26M11 25h26M11 32h26M18 11v26M25 11v26M32 11v26"/></svg></span>
-          <h3>Teppichreparatur</h3>
-          <p>Fachgerechte Reparaturen für Substanz, Stabilität und ein harmonisches Gesamtbild, damit Ihr Teppich Generationen überdauert.</p>
-          <a class="card-link" href="#vergleich">Mehr erfahren
-            <svg viewBox="0 0 24 24" class="ico-arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-      </article>
+    <a class="svc-card reveal" href="#vergleich" data-clip="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmVWMu8qfChuhpbZAAwbcBzJN9/ec5f5f03-40bf-4d19-b943-329ae37bec58.mp4">
+      <div class="svc-media">
+        <img src="assets/img/work-reparatur.jpg" alt="Handarbeit an einem Teppich auf dem Webstuhl" loading="lazy" decoding="async">
+        <span class="svc-scrim" aria-hidden="true"></span>
+      </div>
+      <div class="svc-preview" aria-hidden="true">
+        <span class="svc-pv-label">Vorschau</span>
+        <span class="svc-pv-time">0:00</span>
+      </div>
+      <div class="svc-body">
+        <p class="svc-kicker"><span class="svc-num">03</span>
+          <svg class="svc-ico" viewBox="0 0 48 48" aria-hidden="true"><rect x="11" y="11" width="26" height="26" rx="1"/><path d="M11 18h26M11 25h26M11 32h26M18 11v26M25 11v26M32 11v26"/></svg>
+        </p>
+        <h3 class="svc-title">Teppichreparatur</h3>
+        <p class="svc-text">Traditionelle Reparaturen von Hand –<br>für den Erhalt wertvoller Stücke.</p>
+        <span class="svc-more">Mehr erfahren
+          <svg viewBox="0 0 24 24" class="ico-arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <span class="svc-bar" aria-hidden="true"><i></i></span>
+      </div>
+    </a>
 
-      <article class="service-card reveal">
-        <figure class="service-media">
-          <img src="assets/img/rug-red.jpg" alt="Handgeknüpfter Orientteppich zum Kauf im Showroom" loading="lazy" decoding="async">
-        </figure>
-        <div class="service-body">
-          <span class="service-chip"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M26 9H15a2 2 0 0 0-2 2v11l15 15 13-13z"/><circle cx="20" cy="17" r="2.2"/></svg></span>
-          <h3>Teppichverkauf</h3>
-          <p>Handverlesene Orient- und Designerteppiche zum Kauf – feine Seide, Millionen Knoten – und Massanfertigung nach Ihrer Stoff- und Farbauswahl.</p>
-          <a class="card-link" href="#showroom">Zum Showroom
-            <svg viewBox="0 0 24 24" class="ico-arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-      </article>
-    </div>
+    <a class="svc-card reveal" href="#vergleich" data-clip="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmVWMu8qfChuhpbZAAwbcBzJN9/7356c1a8-be42-4bc3-9310-7d92b29665ce.mp4">
+      <div class="svc-media">
+        <img src="assets/img/work-reinigung.jpg" alt="Teppich wird mit Bürste und Schaum gereinigt" loading="lazy" decoding="async">
+        <span class="svc-scrim" aria-hidden="true"></span>
+      </div>
+      <div class="svc-preview" aria-hidden="true">
+        <span class="svc-pv-label">Vorschau</span>
+        <span class="svc-pv-time">0:00</span>
+      </div>
+      <div class="svc-body">
+        <p class="svc-kicker"><span class="svc-num">04</span>
+          <svg class="svc-ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M16 10h18l-2 26H18z"/><path d="M16 10c-3.3 0-6 2.7-6 6v18c0 1.1.9 2 2 2h6"/><path d="M22 17h6M21 23h8M22 29h6"/></svg>
+        </p>
+        <h3 class="svc-title">Teppichreinigung</h3>
+        <p class="svc-text">Schonende Tiefenreinigung für strahlende<br>Frische und langanhaltende Schönheit.</p>
+        <span class="svc-more">Mehr erfahren
+          <svg viewBox="0 0 24 24" class="ico-arrow" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <span class="svc-bar" aria-hidden="true"><i></i></span>
+      </div>
+    </a>
+  </div>
+
+  <div class="container svc-foot reveal">
+    <span class="svc-foot-line" aria-hidden="true"></span>
+    <p>Diskretion. Sorgfalt. Leidenschaft.</p>
+    <span class="svc-foot-line" aria-hidden="true"></span>
   </div>
 </section>
 
@@ -793,6 +830,6 @@
   <a class="btn btn-gold" href="#termin">Termin</a>
 </div>
 
-<script src="script.js?v=17"></script>
+<script src="script.js?v=130"></script>
 </body>
 </html>
