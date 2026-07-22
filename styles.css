@@ -450,9 +450,29 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 
 /* positioned elements */
 .ch-el{position:absolute;display:block;height:auto;-webkit-user-drag:none;user-select:none}
-.ch-grand{left:40px;top:96px;width:360px;z-index:4}
-.ch-handwerk{left:420px;top:64px;width:280px;z-index:2}
-.ch-kind{left:712px;top:98px;width:360px;z-index:4}
+
+/* Bildkapitel: Titel/Jahr/Untertitel sind echter Text, der eingebrannte Text
+   im Bild wird oben (--cy) bzw. links (--cx) weggeschnitten. Faktoren beziehen
+   sich auf die sichtbare Bildbreite, damit alles mit der Buehne mitskaliert. */
+.ch-fig{margin:0;display:flex;flex-direction:column;gap:.5rem}
+.ch-cut{display:block;overflow:hidden;position:relative}
+.ch-cut img{display:block;max-width:none;width:calc(100% * var(--zw,1));margin-left:calc(-100% * var(--cx,0));margin-top:calc(-100% * var(--cy,0))}
+.ch-cap{margin:0}
+.ch-year{color:var(--gold-deep);letter-spacing:.02em}
+.ch-dot{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);vertical-align:.28em;margin:0 .62em}
+.ch-eb{display:block;font-family:var(--font-d);font-size:.78rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-ink);margin-bottom:.22rem}
+.ch-cap-h{font-family:var(--font-d);font-weight:800;font-size:1.34rem;line-height:1.08;letter-spacing:.02em;text-transform:uppercase;color:var(--on-cream);margin:0 0 .34rem}
+.ch-cap-s{font-family:var(--font-t);font-size:1.02rem;line-height:1.42;color:var(--on-cream-mut);margin:0}
+
+.ch-grand{left:40px;top:96px;width:360px;z-index:4;--cy:.2954}
+.ch-grand .ch-cap{margin-left:74px}
+.ch-grand .ch-cut{aspect-ratio:914/1011}
+.ch-handwerk{left:449px;top:104px;width:251px;z-index:2;--zw:1.1173;--cx:.1173;--cy:.5714}
+.ch-handwerk .ch-cap{margin-left:26px}
+.ch-handwerk .ch-cut{aspect-ratio:665/907}
+.ch-kind{left:712px;top:120px;width:360px;z-index:4;--cy:.3845}
+.ch-kind .ch-cap{margin-left:62px}
+.ch-kind .ch-cut{aspect-ratio:736/889}
 .ch-fabio{left:1170px;bottom:16px;width:498px;z-index:6;-webkit-mask-image:linear-gradient(180deg,#000 86%,rgba(0,0,0,0) 100%);mask-image:linear-gradient(180deg,#000 86%,rgba(0,0,0,0) 100%)}
 
 /* Fabio's name + description as real text, at his hip */
@@ -484,36 +504,10 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .review-card figcaption strong{display:block;color:var(--on-dark);font-weight:600;font-size:.95rem}
 .review-card figcaption span{color:var(--on-dark-mut);font-size:.85rem}
 
-/* =========================================================
-   SOCIAL / REELS
-   ========================================================= */
-/* EINBLICKE: dark full-width contact-sheet band */
-#social{position:relative}
-#social::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:64px;height:1px;background:var(--gold-grad)}
-#social::after{content:"";position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:64px;height:1px;background:rgba(244,239,230,.16)}
-#social .sec-index{color:rgba(244,239,230,.06)}
-.social .section-head{margin-bottom:clamp(2.4rem,5vw,3.6rem);position:relative}
-.social .section-head .eyebrow{color:var(--gold)}
-.social .heading{color:var(--on-dark)}
-.social .section-intro{color:var(--on-dark-mut)}
-.reels{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(244,239,230,.12)}
-.reel{position:relative;aspect-ratio:9/16;overflow:hidden;display:block;background:var(--ink)}
-.reel img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease),filter .7s var(--ease)}
-.reel:hover img{transform:scale(1.04);filter:brightness(1.08)}
-.reel-grad{position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,6,4,.75) 4%,rgba(8,6,4,.05) 42%,rgba(8,6,4,.25) 100%)}
-.reel-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.16);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.5);display:grid;place-items:center;transition:transform .4s,background .4s}
-.reel-play svg{width:20px;height:20px;fill:#fff;margin-left:3px}
-.reel:hover .reel-play{transform:translate(-50%,-50%) scale(1.12);background:var(--gold);border-color:var(--gold)}
-.reel:hover .reel-play svg{fill:#1a1409}
-.reel-cap{position:absolute;left:14px;bottom:14px;right:14px;z-index:2;display:flex;align-items:baseline;gap:.55em;color:#fff;font-weight:600;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
-.social-edge{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;margin-top:2.4rem;padding-top:1.6rem;border-top:1px solid rgba(244,239,230,.12)}
-.social-edge .btn{text-transform:none;letter-spacing:.02em}
-.social-edge .btn-dark{background:var(--cream);color:#241a09;border-color:var(--cream)}
-.social-edge .btn-dark:hover{background:#fff;border-color:#fff;transform:translateY(-2px)}
 .ico-social{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7}
 
 /* =========================================================
-   MAGAZIN / BLOG
+   RATGEBER / BLOG
    ========================================================= */
 #magazin{position:relative;background:var(--cream-2);border-top:1px solid var(--cream-line)}
 #magazin::before{content:"";position:absolute;inset:0 0 auto 0;height:clamp(70px,9vw,130px);background:linear-gradient(180deg,rgba(14,11,8,.10),transparent);pointer-events:none}
@@ -768,7 +762,6 @@ html.js .reveal.in{opacity:1;transform:none}
   .service-grid{grid-template-columns:1fr;max-width:560px;margin-inline:auto}
   .process-steps{grid-template-columns:1fr 1fr}
   .review-grid{grid-template-columns:1fr 1fr}
-  .reels{grid-template-columns:1fr 1fr}
   /* collapse the assembled panorama to a centered vertical stack */
   .ch-scroller{overflow:visible;max-width:none}
   .ch-scroller::before{display:none}
@@ -779,6 +772,7 @@ html.js .reveal.in{opacity:1;transform:none}
   .ch-handwerk{order:2}
   .ch-kind{order:3}
   .ch-fabio{width:min(74vw,330px);order:4;-webkit-mask-image:none;mask-image:none}
+  .ch-fig .ch-cap{margin-left:0!important}
   .ch-today{width:min(90vw,460px);order:5;text-align:center}
   .ch-today-name{font-size:2.2rem}
   .ch-today-text{font-size:1.05rem}
@@ -809,7 +803,6 @@ html.js .reveal.in{opacity:1;transform:none}
   .compare-note{text-align:left}
   .process-steps{grid-template-columns:1fr}
   .review-grid{grid-template-columns:1fr}
-  .reels{grid-template-columns:1fr 1fr}
   .reviews-head{flex-direction:column;align-items:flex-start}
   .ch-el{width:min(90vw,420px)}
   .ch-fabio{width:min(80vw,320px)}
