@@ -433,6 +433,8 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .review-card blockquote{margin:0;color:#E6E0D4;font-size:1rem;line-height:1.65}
 .review-card figcaption{display:flex;align-items:center;gap:.8rem;margin-top:auto}
 .review-card figcaption img{width:46px;height:46px;border-radius:50%;object-fit:cover;border:1px solid rgba(199,162,78,.4)}
+/* Initial-Kreis statt Stockfoto-Gesicht: die Namen sind echt, erfundene Portraits waeren es nicht */
+.rv-ini{flex:none;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-family:var(--font-d);font-weight:700;font-size:1.15rem;line-height:1;color:var(--gold-2);background:rgba(199,162,78,.12);border:1px solid rgba(199,162,78,.4)}
 .review-card figcaption strong{display:block;color:var(--on-dark);font-weight:600;font-size:.95rem}
 .review-card figcaption span{color:var(--on-dark-mut);font-size:.85rem}
 
