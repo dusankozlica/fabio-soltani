@@ -351,8 +351,7 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .ch-scroller{position:relative;width:100%;overflow:hidden;z-index:2}
 .ch-scroller.is-fit{overflow:hidden}
 /* oriental rug backdrop on the RIGHT of the panorama, fading left into cream */
-.ch-scroller::before{content:"";position:absolute;top:0;right:0;bottom:0;width:64%;z-index:0;pointer-events:none;background:url('assets/img/rug-clean.jpg') center/cover no-repeat;filter:sepia(.62) saturate(.7) brightness(1.06) contrast(.92);-webkit-mask-image:radial-gradient(125% 130% at 100% 40%,#000 16%,rgba(0,0,0,.5) 54%,transparent 84%);mask-image:radial-gradient(125% 130% at 100% 40%,#000 16%,rgba(0,0,0,.5) 54%,transparent 84%)}
-.ch-scroller::after{content:"";position:absolute;left:0;right:0;bottom:0;height:19%;z-index:8;pointer-events:none;background:linear-gradient(180deg,rgba(233,218,190,0) 0%,rgba(233,218,190,.6) 60%,#E9DABE 100%)}
+.ch-scroller::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:url('assets/img/rug-clean.jpg') right center/cover no-repeat;filter:sepia(.62) saturate(.7) brightness(1.06) contrast(.92);-webkit-mask-image:radial-gradient(76% 60% at 96% 44%,#000 4%,rgba(0,0,0,.5) 42%,transparent 72%);mask-image:radial-gradient(76% 60% at 96% 44%,#000 4%,rgba(0,0,0,.5) 42%,transparent 72%)}
 
 /* centered real-text headline (site display font) */
 .ch-head-block{position:relative;z-index:2;text-align:left;margin:0 auto clamp(1rem,2vw,1.9rem)}
@@ -687,7 +686,7 @@ html.js .reveal.in{opacity:1;transform:none}
   .reels{grid-template-columns:1fr 1fr}
   /* collapse the assembled panorama to a centered vertical stack */
   .ch-scroller{overflow:visible;max-width:none}
-  .ch-scroller::before,.ch-scroller::after{display:none}
+  .ch-scroller::before{display:none}
   .heritage{padding-bottom:var(--sec-y)}
   .ch-stage{width:auto;height:auto;display:flex;flex-direction:column;align-items:center;gap:1.6rem;padding:6px var(--pad) 4px}
   .ch-el{position:static!important;transform:none!important;left:auto;right:auto;top:auto;bottom:auto;width:min(86vw,440px)}
