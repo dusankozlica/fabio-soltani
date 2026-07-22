@@ -93,7 +93,12 @@
   function header() {
     var h = $('.site-header');
     if (!h) return;
-    var onScroll = function () { h.classList.toggle('scrolled', window.scrollY > 24); };
+    // Aktionsleiste unten erscheint, sobald der Hero-CTA aus dem Bild ist
+    var bar = $('#mobileBar');
+    var onScroll = function () {
+      h.classList.toggle('scrolled', window.scrollY > 24);
+      if (bar) bar.classList.toggle('is-on', window.scrollY > window.innerHeight * .55);
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
   }
@@ -193,6 +198,7 @@
     if (!btn || !menu) return;
     var open = function (state) {
       btn.setAttribute('aria-expanded', state);
+      document.body.classList.toggle('menu-open', !!state);
       if (state) {
         menu.hidden = false;
         requestAnimationFrame(function () { menu.classList.add('open'); });
@@ -249,13 +255,20 @@
           var el = en.target;
           var sibs = Array.prototype.slice.call(el.parentNode.children).filter(function (c) { return c.classList.contains('reveal'); });
           var i = sibs.indexOf(el);
-          el.style.transitionDelay = Math.min(i, 5) * 80 + 'ms';
+          el.style.transitionDelay = Math.min(i, 5) * 45 + 'ms';
           el.classList.add('in');
           io.unobserve(el);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+      // beginnt schon kurz BEVOR der Block ins Bild kommt -> keine leeren Flächen beim Scrollen
+    }, { threshold: 0, rootMargin: '0px 0px 12% 0px' });
     els.forEach(function (el) { io.observe(el); });
+
+    // Sicherung: was nach 3 s aus irgendeinem Grund nicht eingeblendet wurde, wird sichtbar geschaltet.
+    // (Hintergrund-Tabs, Screenshot-Renderer und alte Browser feuern Transitions sonst nie.)
+    setTimeout(function () {
+      els.forEach(function (el) { if (!el.classList.contains('in')) { el.style.transitionDelay = '0ms'; el.classList.add('in'); } });
+    }, 3000);
   }
 
   /* ---------- count-up stats ---------- */
@@ -286,6 +299,13 @@
 
   /* ---------- video sections (only request a file that is configured) ---------- */
   function videoFallback() {
+    // Auf Handys (und bei aktiviertem Datensparmodus) kein Video laden:
+    // das Hero-Video allein wiegt ~18 MB. Das animierte Standbild bleibt stehen.
+    var conn = navigator.connection || {};
+    var lightMode = window.innerWidth <= 768 || conn.saveData === true ||
+                    /^(slow-2g|2g|3g)$/.test(conn.effectiveType || '');
+    if (lightMode || reduce) return;
+
     $$('.media-video').forEach(function (v) {
       var key = v.getAttribute('data-video-key');
       var url = key && VIDEOS[key];
@@ -314,24 +334,43 @@
         set(((clientX - r.left) / r.width) * 100);
       };
       var dragging = false;
-      var start = function (e) {
+      // Touch: erst entscheiden, ob gewischt (scrollen) oder gezogen (Regler) wird.
+      // Ohne das schluckt das Bild jede vertikale Wischgeste und die Seite scrollt nicht mehr.
+      var pending = false, x0 = 0, y0 = 0;
+
+      var startMouse = function (e) {
         dragging = true; ba.classList.add('dragging');
-        fromEvent((e.touches ? e.touches[0] : e).clientX);
+        fromEvent(e.clientX);
         e.preventDefault();
       };
+      var startTouch = function (e) {
+        var t = e.touches[0];
+        pending = true; dragging = false;
+        x0 = t.clientX; y0 = t.clientY;
+        // KEIN preventDefault -> vertikales Scrollen bleibt möglich
+      };
       var move = function (e) {
+        var p = e.touches ? e.touches[0] : e;
+        if (pending) {
+          var dx = Math.abs(p.clientX - x0), dy = Math.abs(p.clientY - y0);
+          if (dx < 8 && dy < 8) return;          // noch zu klein, abwarten
+          pending = false;
+          if (dy > dx) return;                    // klar vertikal -> Seite scrollen lassen
+          dragging = true; ba.classList.add('dragging');
+        }
         if (!dragging) return;
         if (e.cancelable) e.preventDefault();
-        fromEvent((e.touches ? e.touches[0] : e).clientX);
+        fromEvent(p.clientX);
       };
-      var end = function () { dragging = false; ba.classList.remove('dragging'); };
+      var end = function () { pending = false; dragging = false; ba.classList.remove('dragging'); };
 
-      ba.addEventListener('mousedown', start);
+      ba.addEventListener('mousedown', startMouse);
       window.addEventListener('mousemove', move);
       window.addEventListener('mouseup', end);
-      ba.addEventListener('touchstart', start, { passive: false });
+      ba.addEventListener('touchstart', startTouch, { passive: true });
       window.addEventListener('touchmove', move, { passive: false });
       window.addEventListener('touchend', end);
+      window.addEventListener('touchcancel', end);
 
       handle.addEventListener('keydown', function (e) {
         var cur = parseFloat(ba.style.getPropertyValue('--pos')) || 50;
