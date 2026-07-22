@@ -30,6 +30,7 @@
     trustReveal();
     counters();
     videoFallback();
+    serviceClips();
     beforeAfter();
     booking();
     heritageFit();
@@ -317,6 +318,80 @@
       v.addEventListener('loadeddata', ready);
       v.addEventListener('canplay', ready);
       try { v.load(); } catch (e) {}
+    });
+  }
+
+  /* ---------- Leistungen: Video-Vorschau beim Hover ----------
+     Das Video wird ERST beim ersten Hover geladen (preload="none"), damit die
+     Seite nicht vier Clips im Voraus zieht. Auf Touch-Geraeten passiert nichts:
+     dort gibt es keinen Hover, und vier Videos waeren reine Datenverschwendung. */
+  function serviceClips() {
+    var cards = $('.svc-card[data-clip]');
+    if (!cards.length) return;
+    var canHover = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (!canHover || reduce) return;
+
+    var fmt = function (s) {
+      s = Math.max(0, Math.floor(s || 0));
+      return '0:' + (s < 10 ? '0' : '') + s;
+    };
+
+    cards.forEach(function (card) {
+      var url = card.getAttribute('data-clip');
+      if (!url) return;                       // kein Clip hinterlegt -> Standbild bleibt
+      var vid = null, raf = 0;
+      var timeEl = $('.svc-pv-time', card);
+      var barEl = $('.svc-bar i', card);
+
+      var tick = function () {
+        if (!vid) return;
+        var d = vid.duration || 0;
+        if (timeEl) timeEl.textContent = fmt(vid.currentTime) + (d ? ' / ' + fmt(d) : '');
+        if (barEl && d) barEl.style.width = ((vid.currentTime / d) * 100).toFixed(1) + '%';
+        raf = requestAnimationFrame(tick);
+      };
+
+      var build = function () {
+        vid = document.createElement('video');
+        vid.muted = true; vid.loop = true; vid.playsInline = true;
+        vid.setAttribute('playsinline', '');
+        vid.setAttribute('preload', 'none');
+        vid.setAttribute('aria-hidden', 'true');
+        vid.src = url;
+        $('.svc-media', card).appendChild(vid);
+      };
+
+      var hovering = false;
+      var start = function () {
+        if (!hovering || !vid) return;
+        var p = vid.play();
+        // Beim ersten Hover ist die Datei noch nicht da -> nach dem Laden erneut versuchen
+        if (p && p.catch) p.catch(function () {
+          vid.addEventListener('canplay', function again() {
+            vid.removeEventListener('canplay', again);
+            if (hovering) { var q = vid.play(); if (q && q.catch) q.catch(function () {}); }
+          });
+        });
+      };
+
+      card.addEventListener('mouseenter', function () {
+        hovering = true;
+        if (!vid) { build(); vid.addEventListener('canplay', start); }
+        card.classList.add('playing');
+        start();
+        cancelAnimationFrame(raf); raf = requestAnimationFrame(tick);
+      });
+
+      var stop = function () {
+        hovering = false;
+        card.classList.remove('playing');
+        cancelAnimationFrame(raf);
+        if (vid) { vid.pause(); try { vid.currentTime = 0; } catch (e) {} }
+        if (barEl) barEl.style.width = '0';
+        if (timeEl) timeEl.textContent = '0:00';
+      };
+      card.addEventListener('mouseleave', stop);
+      card.addEventListener('blur', stop);
     });
   }
 
