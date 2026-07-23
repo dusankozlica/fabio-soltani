@@ -824,7 +824,7 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .footer-col a:not(.btn):hover{color:var(--gold-2)}
 .footer-contact a[href^="tel"]{font-family:var(--font-d);font-size:1.3rem;color:var(--on-dark);letter-spacing:.03em;padding-bottom:.5rem}
 .footer-contact .btn{margin-top:1rem}
-.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-block:28px;border-top:1px solid rgba(255,255,255,.08);font-size:.84rem;color:var(--on-dark-dim)}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding-block:28px;font-size:.84rem;color:var(--on-dark-dim)}
 .footer-legal{display:flex;gap:1.4rem}
 .footer-legal a:hover{color:var(--gold-2)}
 
