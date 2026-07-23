@@ -314,8 +314,8 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .svc-card:hover{transform:translateY(-3px)}
 
 /* Vorschau-Leiste oben, erscheint mit dem Video */
-.svc-preview{position:absolute;top:0;left:0;right:0;z-index:6;display:flex;align-items:center;justify-content:space-between;
-  padding:1.15rem 1.3rem;opacity:0;transform:translateY(-6px);transition:opacity .4s var(--ease),transform .4s var(--ease);pointer-events:none}
+/* Vorschau-Label und Zeitanzeige entfernt */
+.svc-preview{display:none}
 .svc-card.playing .svc-preview{opacity:1;transform:none}
 .svc-pv-label,.svc-pv-time{font-family:var(--font-d);font-size:.64rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-2)}
 .svc-pv-time{letter-spacing:.12em;color:rgba(244,239,230,.82)}
