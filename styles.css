@@ -490,7 +490,7 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .rating-badge{display:flex;align-items:center;gap:1rem;background:var(--ink-card);border:1px solid rgba(199,162,78,.25);border-radius:var(--r-lg);padding:1rem 1.4rem}
 .rating-stars{color:var(--gold);font-size:1.3rem;letter-spacing:.12em}
 /* fractional star fill (e.g. 4.8/5) */
-.starbar{background:linear-gradient(90deg,var(--gold-2) var(--fill,96%),rgba(244,239,230,.18) var(--fill,96%));-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.starbar{background:linear-gradient(90deg,var(--gold-2) var(--fill,90%),rgba(244,239,230,.16) var(--fill,90%));-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
 .rating-meta strong{display:block;font-size:1.15rem;color:var(--on-dark);font-weight:600}
 .rating-meta span{font-size:.82rem;color:var(--on-dark-mut)}
 
@@ -762,6 +762,20 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 }
 @media (prefers-reduced-motion:reduce){.drop.pulse{animation:none}}
 
+/* FAQ hell auf eigenem, waermerem Grund */
+.faq-light{background:linear-gradient(180deg,#F6F0E3 0%,#EFE7D6 100%);color:var(--on-cream);border-top:1px solid var(--cream-line)}
+.faq-light .heading-light,.faq-light .heading{color:var(--on-cream)}
+.faq-light .section-intro,.faq-light .faq .section-intro{color:var(--on-cream-mut)}
+.faq-light .faq-spiral{opacity:.16;mix-blend-mode:multiply}
+.faq-light .faq-search input{background:#fff;border-color:var(--cream-line);color:var(--on-cream)}
+.faq-light .faq-search input::placeholder{color:#75695a}
+.faq-light .faq-item{background:#FBF9F3;border-color:var(--cream-line)}
+.faq-light .faq-item:hover{background:#fff;border-color:rgba(169,133,58,.45)}
+.faq-light .faq-item[open]{border-color:rgba(169,133,58,.55)}
+.faq-light .faq-q{color:var(--on-cream)}
+.faq-light .faq-a,.faq-light .faq-a p,.faq-light .faq-empty{color:var(--on-cream-mut)}
+.faq-light .eyebrow{color:var(--gold-ink)}
+
 /* =========================================================
    FOOTER
    ========================================================= */
@@ -769,11 +783,12 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
   background:radial-gradient(112% 82% at 50% 116%,rgba(214,175,92,.40) 0%,rgba(163,122,49,.22) 30%,rgba(60,43,20,.06) 58%,rgba(10,8,5,0) 76%),#0A0805;
   padding-top:clamp(76px,9vw,132px)}
 /* Das Logo liegt als grosse, sehr leise Schattierung hinter dem Inhalt */
-.footer-mark{position:absolute;z-index:-1;left:50%;transform:translateX(-50%);bottom:0;
-  width:min(2600px,132%);aspect-ratio:1400/404;pointer-events:none;opacity:.085;
-  background:url('assets/img/logo-light.png') center top/100% auto no-repeat;
-  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 46%);
-  mask-image:linear-gradient(180deg,transparent 0,#000 46%)}
+.footer-mark{position:absolute;z-index:-1;left:50%;transform:translateX(-50%);bottom:-.04em;
+  width:max-content;pointer-events:none;white-space:nowrap;
+  font-family:var(--font-serif);font-weight:600;font-size:min(19vw,272px);line-height:.8;
+  letter-spacing:.03em;text-transform:uppercase;color:rgba(244,239,230,.09);
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 48%);
+  mask-image:linear-gradient(180deg,transparent 0,#000 48%)}
 .footer>*:not(.footer-mark){position:relative}
 .footer-cta{text-align:center;padding-bottom:clamp(64px,7.5vw,104px);border-bottom:1px solid rgba(199,162,78,.18)}
 .footer-cta .heading-light{margin-bottom:2.2rem;font-size:clamp(2.6rem,6vw,5rem)}
