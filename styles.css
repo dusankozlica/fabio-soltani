@@ -928,3 +928,21 @@ html.js .reveal.in{opacity:1;transform:none}
   .blog-row-teaser{display:none}
   .social-edge{flex-direction:column;align-items:flex-start}
 }
+
+/* =========================================================
+   RECHTSSEITEN (Impressum / Datenschutz)
+   ========================================================= */
+.legal-body{background:var(--cream);color:var(--on-cream)}
+.legal-wrap{max-width:820px;margin-inline:auto;padding:clamp(48px,8vw,110px) var(--pad) 80px}
+.legal-back{display:inline-flex;align-items:center;gap:.5em;font-family:var(--font-t);font-size:.9rem;color:var(--on-cream-mut);margin-bottom:2rem;transition:color .3s}
+.legal-back svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.legal-back:hover{color:var(--gold-ink)}
+.legal-title{font-family:var(--font-d);font-weight:800;font-size:clamp(2.4rem,6vw,4rem);line-height:1;letter-spacing:-.01em;text-transform:uppercase;color:var(--on-cream);margin:.4rem 0 1.4rem}
+.legal-intro{font-family:var(--font-t);font-size:1.05rem;line-height:1.7;color:var(--on-cream-mut);max-width:62ch;margin-bottom:2.4rem}
+.legal-sec{margin-bottom:2rem;max-width:72ch}
+.legal-sec h2{font-family:var(--font-d);font-weight:700;font-size:1.14rem;letter-spacing:.01em;color:var(--on-cream);margin:0 0 .6rem}
+.legal-sec p{font-family:var(--font-t);font-size:1rem;line-height:1.7;color:var(--on-cream-mut);margin:0 0 .8rem}
+.legal-sec a{color:var(--gold-ink);text-decoration:underline;text-underline-offset:2px}
+.legal-sec strong{color:var(--on-cream)}
+.legal-foot{margin-top:3rem;padding-top:1.4rem;border-top:1px solid var(--cream-line);font-family:var(--font-t);font-size:.86rem;color:var(--on-cream-mut)}
+.legal-foot a{color:var(--gold-ink);text-decoration:underline;text-underline-offset:2px}
