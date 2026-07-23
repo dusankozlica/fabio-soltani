@@ -119,9 +119,12 @@ a:focus-visible,button:focus-visible,.btn:focus-visible,.nav-toggle:focus-visibl
 
 .btn-gold{background:var(--gold-grad);color:#241a09;box-shadow:0 10px 30px -12px rgba(199,162,78,.6)}
 .btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 40px -12px rgba(199,162,78,.75)}
-/* Alle CTAs tragen denselben goldenen Look */
-.btn-ghost,.btn-ghost-dark,.btn-ghost-light{background:var(--gold-grad);color:#241a09;border-color:transparent;box-shadow:0 10px 30px -12px rgba(199,162,78,.6)}
-.btn-ghost:hover,.btn-ghost-dark:hover,.btn-ghost-light:hover{color:#241a09;border-color:transparent;transform:translateY(-2px);box-shadow:0 16px 40px -12px rgba(199,162,78,.75)}
+/* Sekundaerer Button im Hero bleibt als Kontrast zum goldenen Haupt-CTA */
+.btn-ghost{background:transparent;color:var(--on-dark);border-color:rgba(255,255,255,.28);box-shadow:none}
+.btn-ghost:hover{background:transparent;border-color:var(--gold);color:var(--gold-2);transform:translateY(-2px);box-shadow:none}
+/* uebrige CTAs im goldenen Look */
+.btn-ghost-dark,.btn-ghost-light{background:var(--gold-grad);color:#241a09;border-color:transparent;box-shadow:0 10px 30px -12px rgba(199,162,78,.6)}
+.btn-ghost-dark:hover,.btn-ghost-light:hover{color:#241a09;border-color:transparent;transform:translateY(-2px);box-shadow:0 16px 40px -12px rgba(199,162,78,.75)}
 .btn-dark{background:var(--on-cream);color:var(--cream-2);border-color:var(--on-cream)}
 .btn-dark:hover{background:#000;transform:translateY(-2px)}
 
@@ -487,7 +490,7 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .rating-badge{display:flex;align-items:center;gap:1rem;background:var(--ink-card);border:1px solid rgba(199,162,78,.25);border-radius:var(--r-lg);padding:1rem 1.4rem}
 .rating-stars{color:var(--gold);font-size:1.3rem;letter-spacing:.12em}
 /* fractional star fill (e.g. 4.8/5) */
-.starbar{background:linear-gradient(90deg,var(--gold-2) var(--fill,95%),rgba(217,189,120,.30) var(--fill,95%));-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
+.starbar{background:linear-gradient(90deg,var(--gold-2) var(--fill,96%),rgba(244,239,230,.18) var(--fill,96%));-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent}
 .rating-meta strong{display:block;font-size:1.15rem;color:var(--on-dark);font-weight:600}
 .rating-meta span{font-size:.82rem;color:var(--on-dark-mut)}
 
@@ -767,7 +770,7 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
   padding-top:clamp(76px,9vw,132px)}
 /* Das Logo liegt als grosse, sehr leise Schattierung hinter dem Inhalt */
 .footer-mark{position:absolute;z-index:-1;left:50%;transform:translateX(-50%);bottom:0;
-  width:min(1400px,96%);aspect-ratio:1400/404;pointer-events:none;opacity:.085;
+  width:min(2600px,132%);aspect-ratio:1400/404;pointer-events:none;opacity:.085;
   background:url('assets/img/logo-light.png') center top/100% auto no-repeat;
   -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 46%);
   mask-image:linear-gradient(180deg,transparent 0,#000 46%)}
