@@ -842,4 +842,14 @@
     }
   })();
 
+  /* ---------- Nach-oben-Button ---------- */
+  (function backToTop() {
+    var b = document.getElementById('toTop');
+    if (!b) return;
+    var onScroll = function () { b.classList.toggle('is-on', window.scrollY > window.innerHeight * 0.9); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    b.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
+  })();
+
 })();
