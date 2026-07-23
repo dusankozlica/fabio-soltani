@@ -442,7 +442,7 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .ch-head-block .eyebrow{margin-bottom:.7rem}
 .ch-h2{font-family:var(--font-d);font-weight:700;font-size:clamp(2.3rem,5.6vw,4.3rem);line-height:1.0;letter-spacing:-.02em;text-transform:uppercase;color:var(--on-cream);text-wrap:balance}
 .ch-h2 .hl-gold{color:var(--gold-deep)}
-.ch-h2-sub{margin-top:.7rem;font-family:var(--font-serif);font-style:italic;font-size:clamp(1.05rem,1.6vw,1.35rem);color:var(--on-cream-mut)}
+.ch-h2-sub{margin-top:.8rem;font-family:var(--font-t);font-size:clamp(1rem,1.35vw,1.12rem);line-height:1.5;color:var(--on-cream-mut)}
 
 /* fixed-width canvas — JS scales it to the panel width */
 .ch-stage{position:relative;width:1900px;height:860px;margin:0;transform-origin:top left;z-index:1}
@@ -465,7 +465,10 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 
 .ch-grand{left:40px;top:96px;width:360px;z-index:4;--cy:.2954}
 .ch-grand .ch-cap{margin-left:74px}
-.ch-grand .ch-cut{aspect-ratio:914/1011}
+/* unten wird das handgeschriebene Kaertchen weggeschnitten */
+.ch-grand .ch-cut{aspect-ratio:914/856}
+.ch-note{margin:.55rem 0 0;font-family:var(--font-d);font-size:.78rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-ink)}
+.ch-grand .ch-note{margin-left:74px}
 .ch-handwerk{left:449px;top:104px;width:251px;z-index:2;--zw:1.1173;--cx:.1173;--cy:.5714}
 .ch-handwerk .ch-cap{margin-left:26px}
 .ch-handwerk .ch-cut{aspect-ratio:665/907}
