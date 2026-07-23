@@ -786,12 +786,12 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
   background:radial-gradient(112% 82% at 50% 116%,rgba(214,175,92,.40) 0%,rgba(163,122,49,.22) 30%,rgba(60,43,20,.06) 58%,rgba(10,8,5,0) 76%),#0A0805;
   padding-top:clamp(76px,9vw,132px)}
 /* Das Logo liegt als grosse, sehr leise Schattierung hinter dem Inhalt */
-.footer-mark{position:absolute;z-index:-1;left:0;right:0;bottom:.06em;
-  width:100%;pointer-events:none;text-align:center;white-space:nowrap;
-  font-family:var(--font-serif);font-weight:600;font-size:min(13.3vw,200px);line-height:.82;
-  letter-spacing:.02em;text-transform:uppercase;color:rgba(244,239,230,.10);
+.footer-mark{position:absolute;z-index:-1;left:0;right:0;bottom:0;width:100%;height:auto;
+  pointer-events:none;display:block;overflow:visible;
   -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 52%);
   mask-image:linear-gradient(180deg,transparent 0,#000 52%)}
+.footer-mark text{font-family:var(--font-serif);font-weight:600;font-size:118px;letter-spacing:.01em;
+  text-transform:uppercase;fill:rgba(244,239,230,.10)}
 .footer>*:not(.footer-mark){position:relative}
 .footer-cta{text-align:center;padding-bottom:clamp(64px,7.5vw,104px);border-bottom:1px solid rgba(199,162,78,.18)}
 .footer-cta .heading-light{margin-bottom:2.2rem;font-size:clamp(2.6rem,6vw,5rem)}
