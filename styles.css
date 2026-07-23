@@ -232,10 +232,10 @@ a:focus-visible,button:focus-visible,.btn:focus-visible,.nav-toggle:focus-visibl
    ========================================================= */
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;color:var(--on-dark);background:var(--ink);overflow:hidden}
 .hero-inner{position:relative;z-index:2;width:100%;padding-top:120px;padding-bottom:120px;display:flex;align-items:flex-end;justify-content:space-between;gap:2rem}
-.hero-copy{max-width:680px}
+.hero-copy{max-width:788px}
 .eyebrow{display:block}
 .hero-title{font-size:clamp(2.1rem,6vw,5rem);margin:.2rem 0 0 -.055em;letter-spacing:-.02em}
-.hero-lead{margin-top:1.6rem;font-size:clamp(1rem,1.4vw,1.18rem);color:#E7E0D4;max-width:48ch;line-height:1.7}
+.hero-lead{margin-top:1.6rem;font-size:clamp(1.02rem,1.45vw,1.2rem);color:#E7E0D4;max-width:64ch;line-height:1.65}
 .hero-cta{display:flex;gap:1rem;margin-top:2.2rem;flex-wrap:wrap}
 
 .atelier-play{display:inline-flex;align-items:center;gap:.9rem;background:none;border:none;color:var(--on-dark);cursor:pointer;padding:0;align-self:flex-end;margin-bottom:6px}
