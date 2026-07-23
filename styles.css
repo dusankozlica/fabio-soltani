@@ -119,12 +119,9 @@ a:focus-visible,button:focus-visible,.btn:focus-visible,.nav-toggle:focus-visibl
 
 .btn-gold{background:var(--gold-grad);color:#241a09;box-shadow:0 10px 30px -12px rgba(199,162,78,.6)}
 .btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 40px -12px rgba(199,162,78,.75)}
-.btn-ghost{background:transparent;color:var(--on-dark);border-color:rgba(255,255,255,.28)}
-.btn-ghost:hover{border-color:var(--gold);color:var(--gold-2);transform:translateY(-2px)}
-.btn-ghost-dark{background:transparent;color:var(--on-dark);border-color:rgba(255,255,255,.22)}
-.btn-ghost-dark:hover{border-color:var(--gold);color:var(--gold-2)}
-.btn-ghost-light{background:transparent;color:var(--on-cream);border-color:var(--cream-line)}
-.btn-ghost-light:hover{border-color:var(--gold-deep);color:var(--gold-deep)}
+/* Alle CTAs tragen denselben goldenen Look */
+.btn-ghost,.btn-ghost-dark,.btn-ghost-light{background:var(--gold-grad);color:#241a09;border-color:transparent;box-shadow:0 10px 30px -12px rgba(199,162,78,.6)}
+.btn-ghost:hover,.btn-ghost-dark:hover,.btn-ghost-light:hover{color:#241a09;border-color:transparent;transform:translateY(-2px);box-shadow:0 16px 40px -12px rgba(199,162,78,.75)}
 .btn-dark{background:var(--on-cream);color:var(--cream-2);border-color:var(--on-cream)}
 .btn-dark:hover{background:#000;transform:translateY(-2px)}
 
@@ -394,7 +391,7 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .compare-note{font-size:.86rem;color:var(--on-cream-mut);margin:0}
 
 .ba-item{margin:0;display:flex;flex-direction:column}
-.ba{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3;background:#1c1c1e;--pos:50%;user-select:none;border:1px solid var(--cream-line);box-shadow:0 30px 60px -38px rgba(40,28,10,.55);touch-action:pan-y}
+.ba{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3;background:#1c1c1e;--pos:50%;user-select:none;box-shadow:0 26px 54px -34px rgba(40,28,10,.42);touch-action:pan-y}
 .ba-feature{aspect-ratio:16/12}
 .ba-after,.ba-before{position:absolute;inset:0}
 .ba-after img,.ba-before img{width:100%;height:100%;object-fit:cover}
@@ -513,7 +510,12 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
    ========================================================= */
 #magazin{position:relative;background:var(--cream-2);border-top:1px solid var(--cream-line)}
 #magazin::before{content:"";position:absolute;inset:0 0 auto 0;height:clamp(70px,9vw,130px);background:linear-gradient(180deg,rgba(14,11,8,.10),transparent);pointer-events:none}
-.blog .section-head{margin-bottom:clamp(2.4rem,5vw,3.6rem);position:relative}
+/* Ratgeber laeuft so breit wie der Vergleich; Kopf bleibt auf der Fluchtlinie */
+.blog .container{max-width:1520px}
+.blog .section-head{margin-bottom:clamp(2.4rem,5vw,3.6rem);position:relative;margin-left:clamp(0px,calc((100% - 1160px)/2),140px)}
+.blog .section-head .heading{white-space:nowrap}
+/* deutliche Kante zur naechsten Section */
+.blog{border-bottom:1px solid var(--cream-line)}
 /* oversized ghosted section numeral (shared signpost device) */
 .sec-index{position:absolute;top:-.35em;right:0;font-family:var(--font-d);font-size:clamp(4.5rem,11vw,8.5rem);line-height:1;pointer-events:none;z-index:0}
 #magazin .sec-index{color:var(--cream-line)}
@@ -761,14 +763,14 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
    FOOTER
    ========================================================= */
 .footer{position:relative;isolation:isolate;overflow:hidden;color:var(--on-dark);
-  background:radial-gradient(130% 90% at 50% 0%,#16110A 0%,#0A0805 58%);
+  background:radial-gradient(112% 82% at 50% 116%,rgba(214,175,92,.40) 0%,rgba(163,122,49,.22) 30%,rgba(60,43,20,.06) 58%,rgba(10,8,5,0) 76%),#0A0805;
   padding-top:clamp(76px,9vw,132px)}
 /* Das Logo liegt als grosse, sehr leise Schattierung hinter dem Inhalt */
-.footer-mark{position:absolute;z-index:-1;left:50%;bottom:-6%;transform:translateX(-50%);
-  width:min(1520px,106%);aspect-ratio:1400/512;pointer-events:none;opacity:.12;
-  background:url('assets/img/logo-light.png') center/contain no-repeat;
-  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 22%,#000 80%,transparent 100%);
-  mask-image:linear-gradient(180deg,transparent 0,#000 22%,#000 80%,transparent 100%)}
+.footer-mark{position:absolute;z-index:-1;left:0;right:0;bottom:0;
+  width:100%;aspect-ratio:1400/512;pointer-events:none;opacity:.085;
+  background:url('assets/img/logo-light.png') center bottom/contain no-repeat;
+  -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 44%);
+  mask-image:linear-gradient(180deg,transparent 0,#000 44%)}
 .footer>*:not(.footer-mark){position:relative}
 .footer-cta{text-align:center;padding-bottom:clamp(64px,7.5vw,104px);border-bottom:1px solid rgba(199,162,78,.18)}
 .footer-cta .heading-light{margin-bottom:2.2rem;font-size:clamp(2.6rem,6vw,5rem)}
