@@ -815,10 +815,11 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .footer-main{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:2.5rem;padding-block:clamp(56px,6.5vw,84px)}
 .footer-brand .brand{margin-bottom:1.4rem}
 .footer-brand p{color:var(--on-dark-mut);font-size:.95rem;max-width:38ch;margin-bottom:1.4rem}
-.footer-social{display:flex;gap:.7rem}
-.footer-social a{width:42px;height:42px;border:1px solid rgba(255,255,255,.18);border-radius:50%;display:grid;place-items:center;transition:.3s}
-.footer-social a svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.6}
-.footer-social a:hover{border-color:var(--gold);color:var(--gold-2);transform:translateY(-3px)}
+.footer-social{display:flex;gap:.6rem;flex-wrap:wrap}
+.footer-social a{width:44px;height:44px;border:1px solid rgba(199,162,78,.32);border-radius:50%;display:grid;place-items:center;color:var(--on-dark);background:rgba(255,255,255,.02);transition:transform .3s var(--ease),background .3s,border-color .3s,color .3s,box-shadow .3s}
+.footer-social a svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.footer-social a:hover{background:var(--gold-grad);border-color:transparent;color:#241a09;transform:translateY(-3px);box-shadow:0 10px 24px -10px rgba(199,162,78,.6)}
+.footer-social a:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px}
 .footer-col h3{font-size:.8rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:1.2rem}
 .footer-col a:not(.btn),.footer-contact span{display:block;color:var(--on-dark-mut);font-size:.95rem;padding:.3rem 0;transition:color .3s}
 .footer-col a:not(.btn):hover{color:var(--gold-2)}
