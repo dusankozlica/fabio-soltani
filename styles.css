@@ -754,7 +754,7 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .success-photos[hidden]{display:none}
 
 .svc-cta{padding-block:clamp(2.2rem,4vw,3.2rem)}
-.svc-cta-in{display:flex;align-items:center;justify-content:space-between;gap:1.4rem 2rem;flex-wrap:wrap;padding:clamp(1.3rem,2.4vw,1.9rem) clamp(1.4rem,2.6vw,2.2rem);border:1px solid rgba(199,162,78,.28);border-radius:var(--r-lg);background:linear-gradient(115deg,rgba(199,162,78,.11),rgba(199,162,78,.015) 64%)}
+.svc-cta-in{display:flex;align-items:center;justify-content:space-between;gap:1.4rem 2.5rem;flex-wrap:wrap;max-width:1120px;padding:clamp(1.3rem,2.4vw,1.9rem) clamp(1.4rem,2.6vw,2.2rem);border:1px solid rgba(199,162,78,.28);border-radius:var(--r-lg);background:linear-gradient(115deg,rgba(199,162,78,.11),rgba(199,162,78,.015) 64%)}
 .svc-cta h3{font-family:var(--font-d);font-weight:800;font-size:clamp(1.12rem,1.9vw,1.45rem);line-height:1.12;letter-spacing:.01em;text-transform:uppercase;color:var(--on-dark);margin:0 0 .4rem;text-wrap:balance}
 .svc-cta p{margin:0;font-family:var(--font-t);font-size:.97rem;line-height:1.5;color:var(--on-dark-mut);max-width:54ch}
 .svc-cta .btn{flex:none}
