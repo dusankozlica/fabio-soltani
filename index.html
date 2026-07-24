@@ -30,7 +30,7 @@
 <link rel="preload" as="font" type="font/woff" href="assets/fonts/GoshaSans-Bold.woff" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="styles.css?v=150">
+<link rel="stylesheet" href="styles.css?v=151">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -433,48 +433,49 @@
 <section class="section-dark reviews" id="rezensionen">
   <div class="container">
     <div class="reviews-head reveal">
-      <div>
+      <div class="reviews-headline">
         <h2 class="display heading-light">Vertrauen, das<br>man weitergibt</h2>
+        <p class="section-intro">Echte Google-Rezensionen von Kundinnen und Kunden aus der ganzen Deutschschweiz.</p>
       </div>
       <div class="rating-badge">
-        <div class="rating-stars starbar" aria-hidden="true">★★★★★</div>
-        <div class="rating-meta"><strong>4,8 / 5,0</strong><span>aus 200+ Bewertungen</span></div>
+        <span class="rating-g" aria-hidden="true"><svg class="rv-g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.2a5.3 5.3 0 0 1-2.3 3.5v2.9h3.7c2.2-2 3.4-5 3.4-8.6z"/><path fill="#34A853" d="M12 24c3.1 0 5.7-1 7.6-2.8l-3.7-2.9c-1 .7-2.4 1.1-3.9 1.1-3 0-5.5-2-6.4-4.7H1.8v3C3.7 21.4 7.5 24 12 24z"/><path fill="#FBBC05" d="M5.6 14.7a7.2 7.2 0 0 1 0-4.6v-3H1.8a12 12 0 0 0 0 10.6l3.8-3z"/><path fill="#EA4335" d="M12 4.8c1.7 0 3.2.6 4.4 1.7l3.3-3.3C17.7 1.2 15.1 0 12 0 7.5 0 3.7 2.6 1.8 6.4l3.8 3C6.5 6.8 9 4.8 12 4.8z"/></svg></span>
+        <div class="rating-meta"><strong>4,8&nbsp;/&nbsp;5,0</strong><span>200+ Google-Bewertungen</span></div>
+        <div class="rating-stars starbar" style="--fill:96%" aria-hidden="true">★★★★★</div>
       </div>
     </div>
 
-    <!-- Echte Google-Rezensionen. Bei "Daniel K." und "Michael R." hat der Kunde auf Google
-         ein Pseudonym verwendet (DK / G63 AMG Mercedes) - Anzeigename auf Wunsch ergaenzt.
-         Texte sind woertlich uebernommen, nur gekuerzt. -->
+    <!-- Echte Google-Rezensionen, wörtlich übernommen (nur gekürzt). Initial-Kreise statt
+         erfundener Portraits. "Daniel K." nutzte auf Google ein Pseudonym. -->
     <div class="review-grid">
-      <figure class="review-card reveal">
+      <figure class="review-card is-featured reveal">
         <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
         <blockquote>Ich bin mit der Arbeit von Herrn Fabio Soltani und seiner Interieur Manufaktur äusserst zufrieden. Die von meiner Grossmutter stammenden Möbelstücke sind über 100 Jahre alt und wurden von ihm originalgetreu restauriert.</blockquote>
-        <figcaption><span class="rv-ini" aria-hidden="true">A</span><span><strong>Anja Zwicky</strong>Google&nbsp;Rezension</span></figcaption>
+        <figcaption><span class="rv-ini" aria-hidden="true">A</span><span class="rv-who"><strong>Anja Zwicky</strong><span class="rv-src"><svg class="rv-g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.2a5.3 5.3 0 0 1-2.3 3.5v2.9h3.7c2.2-2 3.4-5 3.4-8.6z"/><path fill="#34A853" d="M12 24c3.1 0 5.7-1 7.6-2.8l-3.7-2.9c-1 .7-2.4 1.1-3.9 1.1-3 0-5.5-2-6.4-4.7H1.8v3C3.7 21.4 7.5 24 12 24z"/><path fill="#FBBC05" d="M5.6 14.7a7.2 7.2 0 0 1 0-4.6v-3H1.8a12 12 0 0 0 0 10.6l3.8-3z"/><path fill="#EA4335" d="M12 4.8c1.7 0 3.2.6 4.4 1.7l3.3-3.3C17.7 1.2 15.1 0 12 0 7.5 0 3.7 2.6 1.8 6.4l3.8 3C6.5 6.8 9 4.8 12 4.8z"/></svg>Google&nbsp;Rezension</span></span></figcaption>
       </figure>
       <figure class="review-card reveal">
         <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
         <blockquote>Wir haben unsere Couch bei Fabio Soltani neu beziehen lassen und sind mit dem Ergebnis sehr glücklich. Die Couch sieht wieder aus wie neu und wurde handwerklich sehr sauber und hochwertig ausgeführt. Auch das Preis-Leistungs-Verhältnis stimmt absolut.</blockquote>
-        <figcaption><span class="rv-ini" aria-hidden="true">M</span><span><strong>Michael R.</strong>Google&nbsp;Rezension</span></figcaption>
+        <figcaption><span class="rv-ini" aria-hidden="true">M</span><span class="rv-who"><strong>Michael R.</strong><span class="rv-src"><svg class="rv-g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.2a5.3 5.3 0 0 1-2.3 3.5v2.9h3.7c2.2-2 3.4-5 3.4-8.6z"/><path fill="#34A853" d="M12 24c3.1 0 5.7-1 7.6-2.8l-3.7-2.9c-1 .7-2.4 1.1-3.9 1.1-3 0-5.5-2-6.4-4.7H1.8v3C3.7 21.4 7.5 24 12 24z"/><path fill="#FBBC05" d="M5.6 14.7a7.2 7.2 0 0 1 0-4.6v-3H1.8a12 12 0 0 0 0 10.6l3.8-3z"/><path fill="#EA4335" d="M12 4.8c1.7 0 3.2.6 4.4 1.7l3.3-3.3C17.7 1.2 15.1 0 12 0 7.5 0 3.7 2.6 1.8 6.4l3.8 3C6.5 6.8 9 4.8 12 4.8z"/></svg>Google&nbsp;Rezension</span></span></figcaption>
       </figure>
       <figure class="review-card reveal">
         <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
         <blockquote>Herr Fabio Soltani hat unsere Eckbank neu bezogen und komplett neu aufgepolstert. Die Arbeit wurde zügig, fachgerecht und mit viel Sorgfalt ausgeführt. Das Ergebnis ist hervorragend – die Eckbank sieht aus wie neu.</blockquote>
-        <figcaption><span class="rv-ini" aria-hidden="true">N</span><span><strong>Nena Theiler</strong>Google&nbsp;Rezension</span></figcaption>
+        <figcaption><span class="rv-ini" aria-hidden="true">N</span><span class="rv-who"><strong>Nena Theiler</strong><span class="rv-src"><svg class="rv-g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.2a5.3 5.3 0 0 1-2.3 3.5v2.9h3.7c2.2-2 3.4-5 3.4-8.6z"/><path fill="#34A853" d="M12 24c3.1 0 5.7-1 7.6-2.8l-3.7-2.9c-1 .7-2.4 1.1-3.9 1.1-3 0-5.5-2-6.4-4.7H1.8v3C3.7 21.4 7.5 24 12 24z"/><path fill="#FBBC05" d="M5.6 14.7a7.2 7.2 0 0 1 0-4.6v-3H1.8a12 12 0 0 0 0 10.6l3.8-3z"/><path fill="#EA4335" d="M12 4.8c1.7 0 3.2.6 4.4 1.7l3.3-3.3C17.7 1.2 15.1 0 12 0 7.5 0 3.7 2.6 1.8 6.4l3.8 3C6.5 6.8 9 4.8 12 4.8z"/></svg>Google&nbsp;Rezension</span></span></figcaption>
       </figure>
       <figure class="review-card reveal">
         <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
         <blockquote>Die Herren haben unglaublich gute Arbeit geleistet, anders kann ich es nicht sagen. Schnell, pünktlich, sehr sauber, einfach geniale Arbeit und nebenbei auch sehr freundlich.</blockquote>
-        <figcaption><span class="rv-ini" aria-hidden="true">J</span><span><strong>Johannes Douglas Kok</strong>Google&nbsp;Rezension</span></figcaption>
+        <figcaption><span class="rv-ini" aria-hidden="true">J</span><span class="rv-who"><strong>Johannes Douglas Kok</strong><span class="rv-src"><svg class="rv-g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.2a5.3 5.3 0 0 1-2.3 3.5v2.9h3.7c2.2-2 3.4-5 3.4-8.6z"/><path fill="#34A853" d="M12 24c3.1 0 5.7-1 7.6-2.8l-3.7-2.9c-1 .7-2.4 1.1-3.9 1.1-3 0-5.5-2-6.4-4.7H1.8v3C3.7 21.4 7.5 24 12 24z"/><path fill="#FBBC05" d="M5.6 14.7a7.2 7.2 0 0 1 0-4.6v-3H1.8a12 12 0 0 0 0 10.6l3.8-3z"/><path fill="#EA4335" d="M12 4.8c1.7 0 3.2.6 4.4 1.7l3.3-3.3C17.7 1.2 15.1 0 12 0 7.5 0 3.7 2.6 1.8 6.4l3.8 3C6.5 6.8 9 4.8 12 4.8z"/></svg>Google&nbsp;Rezension</span></span></figcaption>
       </figure>
       <figure class="review-card reveal">
         <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
         <blockquote>Sehr zuverlässiger Typ, mit einem starken Team. Bringt jedes alte Möbelstück wieder auf Hochglanz. Tolle Teppichauswahl mit kompetenter Beratung.</blockquote>
-        <figcaption><span class="rv-ini" aria-hidden="true">D</span><span><strong>Daniel K.</strong>Google&nbsp;Rezension</span></figcaption>
+        <figcaption><span class="rv-ini" aria-hidden="true">D</span><span class="rv-who"><strong>Daniel K.</strong><span class="rv-src"><svg class="rv-g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.2a5.3 5.3 0 0 1-2.3 3.5v2.9h3.7c2.2-2 3.4-5 3.4-8.6z"/><path fill="#34A853" d="M12 24c3.1 0 5.7-1 7.6-2.8l-3.7-2.9c-1 .7-2.4 1.1-3.9 1.1-3 0-5.5-2-6.4-4.7H1.8v3C3.7 21.4 7.5 24 12 24z"/><path fill="#FBBC05" d="M5.6 14.7a7.2 7.2 0 0 1 0-4.6v-3H1.8a12 12 0 0 0 0 10.6l3.8-3z"/><path fill="#EA4335" d="M12 4.8c1.7 0 3.2.6 4.4 1.7l3.3-3.3C17.7 1.2 15.1 0 12 0 7.5 0 3.7 2.6 1.8 6.4l3.8 3C6.5 6.8 9 4.8 12 4.8z"/></svg>Google&nbsp;Rezension</span></span></figcaption>
       </figure>
       <figure class="review-card reveal">
         <div class="stars" aria-label="5 von 5 Sternen">★★★★★</div>
         <blockquote>Der neue Bezug der Polstergruppe ist sehr professionell ausgeführt. Die Termine wurden eingehalten. Die Preise sind entsprechend, aber es lohnt sich total.</blockquote>
-        <figcaption><span class="rv-ini" aria-hidden="true">S</span><span><strong>Schnider Urs Willi</strong>Google&nbsp;Rezension</span></figcaption>
+        <figcaption><span class="rv-ini" aria-hidden="true">S</span><span class="rv-who"><strong>Schnider Urs Willi</strong><span class="rv-src"><svg class="rv-g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.2a5.3 5.3 0 0 1-2.3 3.5v2.9h3.7c2.2-2 3.4-5 3.4-8.6z"/><path fill="#34A853" d="M12 24c3.1 0 5.7-1 7.6-2.8l-3.7-2.9c-1 .7-2.4 1.1-3.9 1.1-3 0-5.5-2-6.4-4.7H1.8v3C3.7 21.4 7.5 24 12 24z"/><path fill="#FBBC05" d="M5.6 14.7a7.2 7.2 0 0 1 0-4.6v-3H1.8a12 12 0 0 0 0 10.6l3.8-3z"/><path fill="#EA4335" d="M12 4.8c1.7 0 3.2.6 4.4 1.7l3.3-3.3C17.7 1.2 15.1 0 12 0 7.5 0 3.7 2.6 1.8 6.4l3.8 3C6.5 6.8 9 4.8 12 4.8z"/></svg>Google&nbsp;Rezension</span></span></figcaption>
       </figure>
     </div>
   </div>
