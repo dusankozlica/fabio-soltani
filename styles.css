@@ -294,7 +294,8 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .svc-head .section-intro{color:var(--on-dark-mut);max-width:58ch}
 
 /* volle Breite, hauchduenne Goldlinie zwischen den Karten */
-.svc-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(199,162,78,.16)}
+/* Leistungskarten auf der Fluchtlinie der uebrigen Sections, mit Radius */
+.svc-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(199,162,78,.16);width:calc(min(100%, var(--maxw)) - 2 * var(--pad));margin-inline:auto;border-radius:var(--r-lg);overflow:hidden}
 .svc-card{position:relative;display:block;isolation:isolate;background:var(--ink-2);color:var(--on-dark);
   aspect-ratio:3/4;overflow:hidden;
   transition:box-shadow .5s var(--ease),transform .5s var(--ease)}
