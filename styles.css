@@ -81,7 +81,7 @@ a:focus-visible,button:focus-visible,.btn:focus-visible,.nav-toggle:focus-visibl
 .main-nav a,.eyebrow,.step h3,.footer-col h3{font-family:var(--font-d);font-weight:500}
 /* Fliesstext (Lese-Absaetze) bleibt Hanken Grotesk; alles andere = Gosha */
 .hero-lead,.section-intro,.service-card p,.step p,.booking-intro,.booking-points li,.footer-brand p,.review-card blockquote,.compare-note,.booking-success p,.bf-fineprint,.footer-bottom,.booking-form input,.booking-form textarea{font-family:var(--font-t)}
-.hero-lead,.section-intro,.service-card p,.step p,.booking-intro,.philo-lead,.skip-link{position:absolute;left:-999px;top:0;z-index:200;background:var(--gold);color:#1a1409;padding:10px 16px;border-radius:0 0 var(--r) 0;font-weight:600}
+.skip-link{position:absolute;left:-999px;top:0;z-index:200;background:var(--gold);color:#1a1409;padding:10px 16px;border-radius:0 0 var(--r) 0;font-weight:600}
 .skip-link:focus{left:0}
 
 /* ---------- eyebrow / headings ---------- */
@@ -95,7 +95,8 @@ a:focus-visible,button:focus-visible,.btn:focus-visible,.nav-toggle:focus-visibl
 .section-intro{margin-top:1.6rem;color:var(--on-cream-mut);font-size:1.05rem;max-width:60ch}
 .section-head-center .section-intro{margin-inline:auto}
 /* optisch linksbündig: große Überschriften um ihren Buchstaben-Seitenrand nach links ziehen (nur linksbündige Sektionen) */
-.services .heading,.compare .heading,.blog .heading,.social .heading,.philo-copy .heading-light,/* =========================================================
+.services .heading,.compare .heading,.blog .heading,.social .heading,.philo-copy .heading-light{margin-left:-.055em}
+/* =========================================================
    BUTTONS
    ========================================================= */
 .btn{
