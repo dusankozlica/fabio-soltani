@@ -480,7 +480,7 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .ch-today-text{font-family:var(--font-t);font-size:1.02rem;line-height:1.5;color:var(--on-cream-mut)}
 
 /* =========================================================
-   REVIEWS — helle, kompakte Masonry
+   REVIEWS — hell: grosses Zitat oben + gleich grosse Karten
    ========================================================= */
 .reviews-light{background:var(--cream);color:var(--on-cream)}
 .reviews-head{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin-bottom:clamp(2.2rem,4vw,3rem)}
@@ -491,22 +491,37 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .rating-meta strong{display:block;font-size:1.02rem;color:var(--on-cream);font-weight:600;line-height:1.1}
 .rating-meta span{font-size:.78rem;color:var(--on-cream-mut)}
 
-.review-grid{columns:3;column-gap:1.4rem}
-.review-card{margin:0 0 1.4rem;break-inside:avoid;-webkit-column-break-inside:avoid;background:var(--cream-2);border:1px solid var(--cream-line);border-radius:var(--r-lg);padding:1.6rem 1.7rem;box-shadow:0 1px 2px rgba(40,28,10,.05);transition:transform .5s var(--ease),box-shadow .45s var(--ease),border-color .4s}
+/* Grosses Zitat oben */
+.rv-featured{position:relative;margin:0 0 1.4rem;padding:clamp(2rem,3.6vw,3.2rem) clamp(1.8rem,3.4vw,3.4rem);background:linear-gradient(155deg,rgba(199,162,78,.12),var(--cream-2) 62%);border:1px solid rgba(199,162,78,.34);border-radius:var(--r-lg);overflow:hidden;box-shadow:0 20px 50px -40px rgba(40,28,10,.5)}
+.rv-qmark{position:absolute;top:-.6rem;right:1.8rem;font-family:var(--font-serif);font-size:clamp(6rem,10vw,10rem);line-height:1;color:rgba(199,162,78,.2);pointer-events:none}
+.rv-featured-body{position:relative;z-index:1;max-width:64ch}
+.rv-featured .stars{color:var(--gold-deep);letter-spacing:.16em;font-size:1.1rem;margin-bottom:1.1rem}
+.rv-featured blockquote{margin:0 0 1.6rem;color:var(--on-cream);font-size:clamp(1.28rem,2.1vw,1.85rem);line-height:1.42;font-weight:500;letter-spacing:-.005em}
+.rv-featured figcaption{display:flex;align-items:center;gap:1rem}
+.rv-featured .rv-who strong{font-size:1.05rem}
+
+/* Gleich grosse Karten */
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:1.4rem}
+.review-card{margin:0;background:var(--cream-2);border:1px solid var(--cream-line);border-radius:var(--r-lg);padding:1.6rem 1.7rem;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(40,28,10,.05);transition:transform .5s var(--ease),box-shadow .45s var(--ease),border-color .4s}
 .review-card:hover{transform:translateY(-4px);box-shadow:0 30px 55px -34px rgba(40,28,10,.4);border-color:#d8cdb6}
-.review-card .stars{color:var(--gold-deep);letter-spacing:.14em;font-size:.95rem;margin-bottom:.9rem}
-.review-card blockquote{margin:0 0 1.25rem;color:var(--on-cream);font-size:.98rem;line-height:1.62}
-.review-card figcaption{display:flex;align-items:center;gap:.85rem}
+.review-card .stars{color:var(--gold-deep);letter-spacing:.14em;font-size:.92rem;margin-bottom:.85rem}
+.review-card blockquote{margin:0 0 1.2rem;color:var(--on-cream);font-size:.95rem;line-height:1.55;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+.review-card figcaption{display:flex;align-items:center;gap:.8rem;margin-top:auto}
+
 /* Monogramm-Avatar (foto-bereit): img.rv-ava ersetzt spaeter das Monogramm 1:1 */
-.rv-ava{flex:none;width:46px;height:46px;border-radius:50%;object-fit:cover;display:grid;place-items:center;font-family:var(--font-d);font-weight:700;font-size:1.1rem;line-height:1;color:#fff;background:linear-gradient(140deg,var(--gold-2),var(--gold-deep));box-shadow:inset 0 0 0 1px rgba(255,255,255,.25),0 4px 10px -4px rgba(169,133,58,.6)}
+.rv-ava{flex:none;width:44px;height:44px;border-radius:50%;object-fit:cover;display:grid;place-items:center;font-family:var(--font-d);font-weight:700;font-size:1.05rem;line-height:1;color:#fff;background:linear-gradient(140deg,var(--gold-2),var(--gold-deep));box-shadow:inset 0 0 0 1px rgba(255,255,255,.25),0 4px 10px -4px rgba(169,133,58,.6)}
+.rv-ava-lg{width:58px;height:58px;font-size:1.35rem}
 img.rv-ava{background:none;box-shadow:inset 0 0 0 1px rgba(40,28,10,.12)}
 .rv-who strong{display:block;color:var(--on-cream);font-weight:600;font-size:.96rem;line-height:1.25}
-.rv-who span{font-size:.8rem;color:var(--on-cream-mut)}
+.rv-who span{font-size:.82rem;color:var(--on-cream-mut)}
 
 .ico-social{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7}
 
-@media(max-width:1100px){.review-grid{columns:2}}
-@media(max-width:640px){.review-grid{columns:1}}
+@media(max-width:1000px){.review-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){
+  .review-grid{grid-template-columns:1fr;grid-auto-rows:auto}
+  .review-card blockquote{-webkit-line-clamp:unset}
+}
 
 /* =========================================================
    RATGEBER / BLOG
