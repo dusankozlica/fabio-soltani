@@ -81,9 +81,7 @@ a:focus-visible,button:focus-visible,.btn:focus-visible,.nav-toggle:focus-visibl
 .main-nav a,.eyebrow,.step h3,.footer-col h3{font-family:var(--font-d);font-weight:500}
 /* Fliesstext (Lese-Absaetze) bleibt Hanken Grotesk; alles andere = Gosha */
 .hero-lead,.section-intro,.service-card p,.step p,.booking-intro,.booking-points li,.footer-brand p,.review-card blockquote,.compare-note,.booking-success p,.bf-fineprint,.footer-bottom,.booking-form input,.booking-form textarea{font-family:var(--font-t)}
-.hero-lead,.section-intro,.service-card p,.step p,.booking-intro,.philo-lead,.atelier-story p,.review-card blockquote{text-wrap:pretty}
-
-.skip-link{position:absolute;left:-999px;top:0;z-index:200;background:var(--gold);color:#1a1409;padding:10px 16px;border-radius:0 0 var(--r) 0;font-weight:600}
+.hero-lead,.section-intro,.service-card p,.step p,.booking-intro,.philo-lead,.skip-link{position:absolute;left:-999px;top:0;z-index:200;background:var(--gold);color:#1a1409;padding:10px 16px;border-radius:0 0 var(--r) 0;font-weight:600}
 .skip-link:focus{left:0}
 
 /* ---------- eyebrow / headings ---------- */
@@ -97,9 +95,7 @@ a:focus-visible,button:focus-visible,.btn:focus-visible,.nav-toggle:focus-visibl
 .section-intro{margin-top:1.6rem;color:var(--on-cream-mut);font-size:1.05rem;max-width:60ch}
 .section-head-center .section-intro{margin-inline:auto}
 /* optisch linksbündig: große Überschriften um ihren Buchstaben-Seitenrand nach links ziehen (nur linksbündige Sektionen) */
-.services .heading,.compare .heading,.blog .heading,.social .heading,.philo-copy .heading-light,.atelier .heading,.reviews-head .heading-light,.booking-aside .heading-light{margin-left:-.055em}
-
-/* =========================================================
+.services .heading,.compare .heading,.blog .heading,.social .heading,.philo-copy .heading-light,/* =========================================================
    BUTTONS
    ========================================================= */
 .btn{
@@ -238,12 +234,9 @@ a:focus-visible,button:focus-visible,.btn:focus-visible,.nav-toggle:focus-visibl
 .hero-lead{margin-top:1.6rem;font-size:clamp(1.02rem,1.45vw,1.2rem);color:#E7E0D4;max-width:64ch;line-height:1.65}
 .hero-cta{display:flex;gap:1rem;margin-top:2.2rem;flex-wrap:wrap}
 
-.atelier-play{display:inline-flex;align-items:center;gap:.9rem;background:none;border:none;color:var(--on-dark);cursor:pointer;padding:0;align-self:flex-end;margin-bottom:6px}
 .play-ring{width:62px;height:62px;border-radius:50%;border:1px solid rgba(255,255,255,.45);display:grid;place-items:center;position:relative;transition:border-color .4s,transform .4s}
 .play-ring::before{content:"";position:absolute;inset:-1px;border-radius:50%;border:1px solid var(--gold);clip-path:inset(0 0 0 0);opacity:0;transition:opacity .4s}
 .play-ring svg{width:20px;height:20px;fill:var(--gold);margin-left:3px}
-.atelier-play:hover .play-ring{transform:scale(1.06);border-color:transparent}
-.atelier-play:hover .play-ring::before{opacity:1}
 .play-text{display:flex;flex-direction:column;text-align:left;line-height:1.25}
 .play-label{font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-2)}
 .play-sub{font-size:.92rem;color:#D8D1C4}
@@ -520,7 +513,7 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .blog .section-head{margin-bottom:clamp(2.4rem,5vw,3.6rem);position:relative}
 .blog .section-head .heading{white-space:nowrap}
 /* deutliche Kante zur naechsten Section */
-.blog{border-bottom:1px solid var(--cream-line)}
+/* Ratgeber-Unterkante entfernt: dunkle Atelier-Section trennt visuell */
 /* oversized ghosted section numeral (shared signpost device) */
 .sec-index{position:absolute;top:-.35em;right:0;font-family:var(--font-d);font-size:clamp(4.5rem,11vw,8.5rem);line-height:1;pointer-events:none;z-index:0}
 #magazin .sec-index{color:var(--cream-line)}
@@ -600,36 +593,9 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 @media(prefers-reduced-motion:reduce){.faq-item[open] .faq-a{animation:none}}
 
 /* Teppichverkauf / Showroom */
-.shop-gallery{display:grid;grid-template-columns:1.55fr 1fr;grid-template-rows:1fr 1fr;gap:14px;margin-top:clamp(2.4rem,4.5vw,3.4rem);aspect-ratio:16/8.4;max-height:600px}
-.shop-g{position:relative;margin:0;overflow:hidden;border-radius:var(--r-lg);box-shadow:0 24px 50px -30px rgba(40,28,10,.5)}
-.shop-g img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s var(--ease)}
-.shop-g:hover img{transform:scale(1.04)}
-.shop-g1{grid-row:1 / span 2}
-.shop-badge{position:absolute;left:20px;bottom:20px;background:var(--ink);color:var(--on-dark);border-radius:14px;padding:1rem 1.3rem;display:flex;flex-direction:column;gap:.14rem;box-shadow:0 20px 40px -20px rgba(0,0,0,.6)}
-.shop-badge-eb{font-family:var(--font-d);font-size:.64rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
-.shop-badge strong{font-family:var(--font-d);font-size:1.35rem;line-height:1;letter-spacing:.01em}
-.shop-badge-sub{font-family:var(--font-t);font-size:.74rem;color:var(--on-dark-mut)}
-.shop-mtm{margin-top:clamp(2.6rem,5vw,4rem)}
-.shop-mtm-title{font-family:var(--font-d);font-weight:700;font-size:clamp(1.5rem,2.3vw,2rem);line-height:1;letter-spacing:-.01em;color:var(--on-cream);margin-bottom:clamp(1.5rem,2.8vw,2.2rem);text-wrap:balance}
-.shop-specs{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1.6rem,3vw,3rem) clamp(1.6rem,2.6vw,2.6rem)}
-.shop-spec{padding-top:1.15rem;border-top:1px solid rgba(169,133,58,.45)}
-.shop-spec h4{font-family:var(--font-d);font-weight:600;font-size:1.16rem;color:var(--on-cream);letter-spacing:.005em;margin-bottom:.55rem}
-.shop-spec p{font-family:var(--font-t);color:var(--on-cream-mut);font-size:.94rem;line-height:1.6}
-.shop-visit-bar{display:flex;align-items:center;justify-content:space-between;gap:1.6rem;flex-wrap:wrap;margin-top:clamp(2.4rem,4.5vw,3.4rem);padding:clamp(1.5rem,2.6vw,2.1rem) clamp(1.5rem,3vw,2.6rem);background:var(--ink);color:var(--on-dark);border-radius:var(--r-lg)}
 .sv-loc{display:flex;align-items:center;gap:1rem;min-width:0}
-.sv-loc .shop-pin{flex:none;width:30px;height:30px;fill:none;stroke:var(--gold);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.sv-loc strong{display:block;font-family:var(--font-d);font-weight:600;font-size:1.05rem;color:var(--on-dark);letter-spacing:.01em}
+.sv-loc .sv-loc strong{display:block;font-family:var(--font-d);font-weight:600;font-size:1.05rem;color:var(--on-dark);letter-spacing:.01em}
 .sv-loc span{font-family:var(--font-t);color:var(--on-dark-mut);font-size:.9rem}
-.shop-cta{display:flex;flex-wrap:wrap;gap:1rem}
-@media(max-width:860px){
-  .shop-gallery{grid-template-columns:1fr 1fr;grid-template-rows:auto auto;aspect-ratio:auto;max-height:none}
-  .shop-g1{grid-column:1 / span 2;aspect-ratio:16/10}
-  .shop-g2,.shop-g3{aspect-ratio:4/3}
-  .shop-specs{grid-template-columns:1fr 1fr}
-  .shop-visit-bar{flex-direction:column;align-items:flex-start}
-}
-@media(max-width:520px){.shop-specs{grid-template-columns:1fr}}
-
 /* Magazin card grid */
 .mag-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.6rem,2.6vw,2.4rem);margin-top:clamp(2.4rem,4.5vw,3.4rem)}
 .mag-card{display:flex;flex-direction:column;color:var(--on-cream);transition:transform .35s var(--ease)}
@@ -799,6 +765,47 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 @media (prefers-reduced-motion:reduce){.to-top{transition:opacity .2s}}
 
 /* =========================================================
+   TEPPICHVERKAUF / ATELIER — dunkles Editorial, linksbündig
+   ========================================================= */
+.shop{background:radial-gradient(125% 105% at 82% -8%,#1A130B 0%,#120D07 46%,var(--ink) 100%);border-top:1px solid rgba(199,162,78,.14);overflow:hidden}
+.shop-grid{display:grid;grid-template-columns:0.94fr 1.06fr;gap:clamp(2rem,4.5vw,4.5rem);align-items:center;text-align:left}
+.shop-copy{text-align:left}
+.shop-copy .eyebrow{color:var(--gold);text-align:left;justify-content:flex-start}
+.shop-copy .heading-light{color:var(--on-dark);margin-bottom:1.4rem;text-align:left}
+.shop-copy .section-intro{color:var(--on-dark-mut);max-width:52ch;margin:0;text-align:left}
+.shop-specs{list-style:none;margin:clamp(1.8rem,3vw,2.6rem) 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:1.4rem 2.2rem}
+.shop-specs li{padding-top:1rem;border-top:1px solid rgba(199,162,78,.32);text-align:left}
+.shop-specs h4{font-family:var(--font-d);font-weight:600;font-size:1.06rem;letter-spacing:.01em;color:var(--on-dark);margin-bottom:.35rem}
+.shop-specs p{font-family:var(--font-t);font-size:.9rem;line-height:1.5;color:var(--on-dark-mut);margin:0}
+.shop-cta{display:flex;flex-wrap:wrap;gap:1rem;margin-top:clamp(1.8rem,3vw,2.4rem)}
+.shop-media{display:grid;grid-template-columns:1.5fr 1fr;grid-template-rows:1fr 1fr;gap:14px;aspect-ratio:15/13;max-height:640px}
+.shop-g{position:relative;margin:0;overflow:hidden;border-radius:var(--r-lg);box-shadow:0 30px 60px -34px rgba(0,0,0,.7);outline:1px solid rgba(199,162,78,.14);outline-offset:-1px}
+.shop-g img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s var(--ease)}
+.shop-g:hover img{transform:scale(1.05)}
+.shop-g1{grid-row:1 / span 2}
+.shop-badge{position:absolute;left:18px;bottom:18px;margin:0;background:rgba(12,9,5,.82);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:var(--on-dark);border:1px solid rgba(199,162,78,.28);border-radius:12px;padding:.85rem 1.15rem;display:flex;flex-direction:column;gap:.12rem;text-align:left}
+.shop-badge-eb{font-family:var(--font-d);font-size:.62rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-2)}
+.shop-badge strong{font-family:var(--font-d);font-size:1.3rem;line-height:1;letter-spacing:.01em}
+.shop-badge-sub{font-family:var(--font-t);font-size:.72rem;color:var(--on-dark-mut)}
+.shop-visit-bar{display:flex;align-items:center;justify-content:space-between;gap:1.4rem;flex-wrap:wrap;margin-top:clamp(2.4rem,4.5vw,3.6rem);padding:clamp(1.3rem,2.4vw,1.8rem) clamp(1.4rem,2.6vw,2.2rem);background:rgba(199,162,78,.06);border:1px solid rgba(199,162,78,.24);border-radius:var(--r-lg);text-align:left}
+.sv-loc{display:flex;align-items:center;gap:1rem}
+.sv-loc strong{display:block;font-family:var(--font-d);font-size:1.02rem;letter-spacing:.01em;color:var(--on-dark)}
+.sv-loc span{display:block;font-family:var(--font-t);font-size:.86rem;color:var(--on-dark-mut)}
+.shop-pin{flex:none;width:28px;height:28px;fill:none;stroke:var(--gold);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.shop-phone{font-family:var(--font-d);letter-spacing:.03em}
+@media(max-width:980px){
+  .shop-grid{grid-template-columns:1fr;gap:2.4rem}
+  .shop-media{aspect-ratio:16/11;max-height:none}
+}
+@media(max-width:620px){
+  .shop-specs{grid-template-columns:1fr}
+  .shop-media{grid-template-columns:1fr 1fr;grid-template-rows:auto auto;aspect-ratio:auto}
+  .shop-g1{grid-column:1 / span 2;aspect-ratio:16/10}
+  .shop-g2,.shop-g3{aspect-ratio:4/3}
+  .shop-visit-bar{flex-direction:column;align-items:flex-start}
+}
+
+/* =========================================================
    FOOTER
    ========================================================= */
 .footer{position:relative;isolation:isolate;overflow:hidden;color:var(--on-dark);
@@ -883,7 +890,6 @@ html.js .reveal.in{opacity:1;transform:none}
   .brand-logo-footer{height:70px}
   .brand-tag{display:none}
   .hero-inner{flex-direction:column;align-items:flex-start;gap:2.4rem;padding-top:110px;padding-bottom:90px}
-  .atelier-play{align-self:flex-start;margin-bottom:0}
   .hero-cta{width:100%}
   .hero-cta .btn{flex:1}
   .trust-card{margin-top:-36px;padding:30px 26px}
