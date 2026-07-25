@@ -30,7 +30,7 @@
 <link rel="preload" as="font" type="font/woff" href="assets/fonts/GoshaSans-Bold.woff" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="styles.css?v=172">
+<link rel="stylesheet" href="styles.css?v=173">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -153,7 +153,8 @@
         <span class="proof-div" aria-hidden="true"></span>
         <div class="proof-text">
           <div class="proof-stars" aria-label="Bewertung 4,8 von 5,0"><span class="starbar" aria-hidden="true">★★★★★</span> <strong>4,8</strong></div>
-          <p class="proof-sub">Vertraut von <strong>über 500</strong> Schweizer Kunden&nbsp;<svg class="swiss-cross" viewBox="0 0 32 32" role="img" aria-label="Swiss Quality"><rect width="32" height="32" rx="5" fill="#D52B1E"/><path fill="#fff" d="M13 6h6v7h7v6h-7v7h-6v-7H6v-6h7z"/></svg></p>
+          <p class="proof-sub">Vertraut von <strong>über 500</strong> Schweizer Kunden</p>
+          <svg class="swiss-cross" viewBox="0 0 32 32" role="img" aria-label="Swiss Quality"><rect width="32" height="32" rx="6" fill="#D52B1E"/><path fill="#fff" d="M13 6h6v7h7v6h-7v7h-6v-7H6v-6h7z"/></svg>
         </div>
       </div>
     </div>
@@ -494,7 +495,7 @@
       </figure>
     </div>
   </div>
-  <script>(function(){var c=document.querySelector('#rezensionen .rv-clip');if(!c)return;var v=c.querySelector('video'),m=c.querySelector('.rv-mute');var hov=window.matchMedia&&window.matchMedia('(hover:hover) and (pointer:fine)').matches;var userMuted=false,unlocked=false;function paint(){c.classList.toggle('is-muted',v.muted);}function unlock(){if(unlocked)return;unlocked=true;var wm=v.muted;v.muted=true;var p=v.play();if(p&&p.then){p.then(function(){v.pause();try{v.currentTime=0;}catch(e){}v.muted=wm;}).catch(function(){v.muted=wm;});}else{try{v.pause();}catch(e){}v.muted=wm;}['pointerdown','keydown','touchstart'].forEach(function(ev){document.removeEventListener(ev,unlock,true);});}['pointerdown','keydown','touchstart'].forEach(function(ev){document.addEventListener(ev,unlock,true);});if(hov){c.addEventListener('mouseenter',function(){c.classList.add('playing');v.muted=userMuted;var p=v.play();if(p&&p.catch)p.catch(function(){v.muted=true;v.play().catch(function(){});paint();});paint();});c.addEventListener('mouseleave',function(){c.classList.remove('playing');v.pause();try{v.currentTime=0;}catch(e){}});}else{v.setAttribute('controls','');}m.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();v.muted=!v.muted;userMuted=v.muted;if(!v.muted){v.play().catch(function(){});}paint();});})();</script>
+  <script>(function(){var c=document.querySelector('#rezensionen .rv-clip');if(!c)return;var v=c.querySelector('video'),m=c.querySelector('.rv-mute');var hov=window.matchMedia&&window.matchMedia('(hover:hover) and (pointer:fine)').matches;var userMuted=false,unlocked=false;function paint(){c.classList.toggle('is-muted',v.muted);}function unlock(){if(unlocked)return;unlocked=true;v.muted=false;var p=v.play();try{v.pause();v.currentTime=0;}catch(e){}if(p&&p.catch)p.catch(function(){});['pointerdown','keydown','touchstart'].forEach(function(ev){document.removeEventListener(ev,unlock,true);});}['pointerdown','keydown','touchstart'].forEach(function(ev){document.addEventListener(ev,unlock,true);});if(hov){c.addEventListener('mouseenter',function(){c.classList.add('playing');v.muted=userMuted;var p=v.play();if(p&&p.catch)p.catch(function(){v.muted=true;v.play().catch(function(){});paint();});paint();});c.addEventListener('mouseleave',function(){c.classList.remove('playing');v.pause();try{v.currentTime=0;}catch(e){}});}else{v.setAttribute('controls','');}m.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();v.muted=!v.muted;userMuted=v.muted;if(!v.muted){v.play().catch(function(){});}paint();});})();</script>
 </section>
 
 <!-- ================= RATGEBER / BLOG ================= -->
