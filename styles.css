@@ -364,6 +364,7 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .proof-stars strong{color:var(--on-dark);font-size:1.1rem;font-weight:700;letter-spacing:0}
 .proof-sub{margin-top:.35rem;font-size:.92rem;color:#D8D1C4}
 .proof-sub strong{color:#fff;font-weight:700}
+.swiss-cross{display:inline-block;width:1.12em;height:1.12em;vertical-align:-.2em;border-radius:3px;margin-left:.2em;box-shadow:0 1px 2px rgba(0,0,0,.35)}
 
 /* =========================================================
    PHILOSOPHY
