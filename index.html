@@ -453,7 +453,7 @@
         <figcaption><span class="rv-ava rv-ava-lg" aria-hidden="true">A</span><span class="rv-who"><strong>Anja Zwicky</strong><span>Privatkundin · Restauration</span></span></figcaption>
       </div>
       <div class="rv-clip">
-        <video class="rv-clip-video" autoplay muted loop playsinline preload="auto">
+        <video class="rv-clip-video" loop playsinline preload="metadata">
           <source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmVWMu8qfChuhpbZAAwbcBzJN9/ce85cd44-0ef6-4eee-9763-680cf08d24f9.mp4" type="video/mp4">
         </video>
         <span class="rv-clip-scrim" aria-hidden="true"></span>
@@ -492,7 +492,7 @@
       </figure>
     </div>
   </div>
-  <script>(function(){var c=document.querySelector('#rezensionen .rv-clip');if(!c)return;var v=c.querySelector('video'),m=c.querySelector('.rv-mute');var userMuted=false;function paint(){c.classList.toggle('is-muted',v.muted);}function arm(){var evs=['pointerdown','keydown','touchstart','wheel'];function on(){if(userMuted){clean();return;}v.muted=false;var q=v.play();if(q&&q.then){q.then(function(){paint();clean();}).catch(function(){});}else{paint();clean();}}function clean(){evs.forEach(function(e){window.removeEventListener(e,on);});}evs.forEach(function(e){window.addEventListener(e,on,{passive:true});});}v.loop=true;v.playsInline=true;v.muted=false;var p=v.play();if(p&&p.catch){p.catch(function(){v.muted=true;paint();v.play().catch(function(){});arm();});}paint();m.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();v.muted=!v.muted;userMuted=v.muted;if(!v.muted){v.play().catch(function(){});}paint();});})();</script>
+  <script>(function(){var c=document.querySelector('#rezensionen .rv-clip');if(!c)return;var v=c.querySelector('video'),m=c.querySelector('.rv-mute');var hov=window.matchMedia&&window.matchMedia('(hover:hover) and (pointer:fine)').matches;var muted=false;function sm(x){muted=x;v.muted=x;c.classList.toggle('is-muted',x);}sm(false);if(hov){c.addEventListener('mouseenter',function(){c.classList.add('playing');v.muted=muted;var p=v.play();if(p&&p.catch)p.catch(function(){v.muted=true;muted=true;c.classList.add('is-muted');v.play().catch(function(){});});});c.addEventListener('mouseleave',function(){c.classList.remove('playing');v.pause();try{v.currentTime=0;}catch(e){}});}else{v.setAttribute('controls','');}m.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();sm(!muted);if(!muted){var p=v.play();if(p&&p.catch)p.catch(function(){});}});})();</script>
 </section>
 
 <!-- ================= RATGEBER / BLOG ================= -->
