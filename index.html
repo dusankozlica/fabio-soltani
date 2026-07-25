@@ -30,7 +30,7 @@
 <link rel="preload" as="font" type="font/woff" href="assets/fonts/GoshaSans-Bold.woff" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="styles.css?v=171">
+<link rel="stylesheet" href="styles.css?v=172">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -494,7 +494,7 @@
       </figure>
     </div>
   </div>
-  <script>(function(){var c=document.querySelector('#rezensionen .rv-clip');if(!c)return;var v=c.querySelector('video'),m=c.querySelector('.rv-mute');var hov=window.matchMedia&&window.matchMedia('(hover:hover) and (pointer:fine)').matches;var userMuted=false;function paint(){c.classList.toggle('is-muted',v.muted);}if(hov){c.addEventListener('mouseenter',function(){c.classList.add('playing');v.muted=userMuted;var p=v.play();if(p&&p.catch)p.catch(function(){v.muted=true;v.play().catch(function(){});paint();});paint();});c.addEventListener('mouseleave',function(){c.classList.remove('playing');v.pause();try{v.currentTime=0;}catch(e){}});}else{v.setAttribute('controls','');}m.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();v.muted=!v.muted;userMuted=v.muted;if(!v.muted){v.play().catch(function(){});}paint();});})();</script>
+  <script>(function(){var c=document.querySelector('#rezensionen .rv-clip');if(!c)return;var v=c.querySelector('video'),m=c.querySelector('.rv-mute');var hov=window.matchMedia&&window.matchMedia('(hover:hover) and (pointer:fine)').matches;var userMuted=false,unlocked=false;function paint(){c.classList.toggle('is-muted',v.muted);}function unlock(){if(unlocked)return;unlocked=true;var wm=v.muted;v.muted=true;var p=v.play();if(p&&p.then){p.then(function(){v.pause();try{v.currentTime=0;}catch(e){}v.muted=wm;}).catch(function(){v.muted=wm;});}else{try{v.pause();}catch(e){}v.muted=wm;}['pointerdown','keydown','touchstart'].forEach(function(ev){document.removeEventListener(ev,unlock,true);});}['pointerdown','keydown','touchstart'].forEach(function(ev){document.addEventListener(ev,unlock,true);});if(hov){c.addEventListener('mouseenter',function(){c.classList.add('playing');v.muted=userMuted;var p=v.play();if(p&&p.catch)p.catch(function(){v.muted=true;v.play().catch(function(){});paint();});paint();});c.addEventListener('mouseleave',function(){c.classList.remove('playing');v.pause();try{v.currentTime=0;}catch(e){}});}else{v.setAttribute('controls','');}m.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();v.muted=!v.muted;userMuted=v.muted;if(!v.muted){v.play().catch(function(){});}paint();});})();</script>
 </section>
 
 <!-- ================= RATGEBER / BLOG ================= -->
