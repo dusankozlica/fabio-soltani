@@ -30,7 +30,7 @@
 <link rel="preload" as="font" type="font/woff" href="assets/fonts/GoshaSans-Bold.woff" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="styles.css?v=161">
+<link rel="stylesheet" href="styles.css?v=162">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
@@ -436,11 +436,10 @@
       <div class="reviews-headline">
         <p class="eyebrow eyebrow-dark">Kundenstimmen</p>
         <h2 class="display heading">Vertrauen, das<br>man weitergibt</h2>
-        <p class="section-intro">Echte Rezensionen von Kundinnen und Kunden aus der ganzen Deutschschweiz.</p>
-      </div>
-      <div class="rating-badge">
+        <div class="rating-badge">
         <div class="rating-stars starbar" style="--fill:96%" aria-hidden="true">★★★★★</div>
         <div class="rating-meta"><strong>4,8&nbsp;/&nbsp;5,0</strong><span>200+ Bewertungen</span></div>
+      </div>
       </div>
     </div>
 
@@ -454,7 +453,7 @@
         <figcaption><span class="rv-ava rv-ava-lg" aria-hidden="true">A</span><span class="rv-who"><strong>Anja Zwicky</strong><span>Privatkundin · Restauration</span></span></figcaption>
       </div>
       <div class="rv-clip">
-        <video class="rv-clip-video" playsinline preload="metadata" loop>
+        <video class="rv-clip-video" autoplay muted loop playsinline preload="auto">
           <source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3GmVWMu8qfChuhpbZAAwbcBzJN9/ce85cd44-0ef6-4eee-9763-680cf08d24f9.mp4" type="video/mp4">
         </video>
         <span class="rv-clip-scrim" aria-hidden="true"></span>
@@ -462,7 +461,6 @@
           <svg class="ico-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 8.5a4 4 0 0 1 0 7"/><path d="M18.5 6a7.5 7.5 0 0 1 0 12"/></svg>
           <svg class="ico-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M17 9.5l5 5M22 9.5l-5 5"/></svg>
         </button>
-        <span class="rv-clip-hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>Für Ton bewegen</span>
       </div>
     </figure>
 
@@ -494,7 +492,7 @@
       </figure>
     </div>
   </div>
-  <script>(function(){var c=document.querySelector('#rezensionen .rv-clip');if(!c)return;var v=c.querySelector('video'),m=c.querySelector('.rv-mute');var hov=window.matchMedia&&window.matchMedia('(hover:hover) and (pointer:fine)').matches;var muted=false;function sm(x){muted=x;v.muted=x;c.classList.toggle('is-muted',x);}sm(false);if(hov){c.addEventListener('mouseenter',function(){c.classList.add('playing');v.muted=muted;var p=v.play();if(p&&p.catch)p.catch(function(){v.muted=true;muted=true;c.classList.add('is-muted');v.play().catch(function(){});});});c.addEventListener('mouseleave',function(){c.classList.remove('playing');v.pause();try{v.currentTime=0;}catch(e){}});}else{v.setAttribute('controls','');}m.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();sm(!muted);if(!muted){var p=v.play();if(p&&p.catch)p.catch(function(){});}});})();</script>
+  <script>(function(){var c=document.querySelector('#rezensionen .rv-clip');if(!c)return;var v=c.querySelector('video'),m=c.querySelector('.rv-mute');var userMuted=false;function paint(){c.classList.toggle('is-muted',v.muted);}function arm(){var evs=['pointerdown','keydown','touchstart','wheel'];function on(){if(userMuted){clean();return;}v.muted=false;var q=v.play();if(q&&q.then){q.then(function(){paint();clean();}).catch(function(){});}else{paint();clean();}}function clean(){evs.forEach(function(e){window.removeEventListener(e,on);});}evs.forEach(function(e){window.addEventListener(e,on,{passive:true});});}v.loop=true;v.playsInline=true;v.muted=false;var p=v.play();if(p&&p.catch){p.catch(function(){v.muted=true;paint();v.play().catch(function(){});arm();});}paint();m.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();v.muted=!v.muted;userMuted=v.muted;if(!v.muted){v.play().catch(function(){});}paint();});})();</script>
 </section>
 
 <!-- ================= RATGEBER / BLOG ================= -->
@@ -568,7 +566,8 @@
     </div>
   </div>
 
-  <div class="container shop-visit-bar reveal">
+  <div class="container">
+    <div class="shop-visit-bar reveal">
     <div class="sv-loc">
       <svg class="shop-pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.3-7-11a7 7 0 0 1 14 0c0 4.7-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
       <div>
@@ -577,6 +576,7 @@
       </div>
     </div>
     <a class="btn btn-ghost-dark shop-phone" href="tel:+41443821769">+41&nbsp;44&nbsp;382&nbsp;17&nbsp;69</a>
+    </div>
   </div>
 </section>
 
