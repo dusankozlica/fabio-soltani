@@ -495,13 +495,14 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .rating-meta span{font-size:.78rem;color:var(--on-cream-mut)}
 
 /* Grosses Zitat oben */
-.rv-featured{position:relative;margin:0 0 1.4rem;display:grid;grid-template-columns:1.35fr minmax(230px,.72fr);gap:clamp(1.4rem,3vw,2.8rem);align-items:center;padding:clamp(2rem,3.6vw,3.2rem) clamp(1.8rem,3.4vw,3.4rem);background:linear-gradient(155deg,rgba(199,162,78,.12),var(--cream-2) 62%);border:1px solid rgba(199,162,78,.34);border-radius:var(--r-lg);overflow:hidden;box-shadow:0 20px 50px -40px rgba(40,28,10,.5)}
-.rv-qmark{position:absolute;top:-.6rem;right:1.8rem;font-family:var(--font-serif);font-size:clamp(6rem,10vw,10rem);line-height:1;color:rgba(199,162,78,.2);pointer-events:none}
+.rv-featured{position:relative;margin:0 0 clamp(2.2rem,4.5vw,3.4rem);display:grid;grid-template-columns:1.4fr minmax(230px,.66fr);gap:clamp(1.8rem,4vw,3.6rem);align-items:center}
+.rv-qmark{position:absolute;top:-1.7rem;left:-.4rem;z-index:0;font-family:var(--font-serif);font-size:clamp(5rem,8vw,7.5rem);line-height:1;color:rgba(199,162,78,.32);pointer-events:none}
 .rv-featured-body{position:relative;z-index:1;min-width:0}
-.rv-featured .stars{color:var(--gold-deep);letter-spacing:.16em;font-size:1.1rem;margin-bottom:1.1rem}
-.rv-featured blockquote{margin:0 0 1.6rem;color:var(--on-cream);font-size:clamp(1.28rem,2.1vw,1.85rem);line-height:1.42;font-weight:500;letter-spacing:-.005em}
+.rv-featured .stars{color:var(--gold-2);letter-spacing:.16em;font-size:1.1rem;margin-bottom:1.1rem}
+.rv-featured blockquote{margin:0 0 1.7rem;color:#F3EDE0;font-size:clamp(1.3rem,2.15vw,1.9rem);line-height:1.44;font-weight:500;letter-spacing:-.005em}
 .rv-featured figcaption{display:flex;align-items:center;gap:1rem}
-.rv-featured .rv-who strong{font-size:1.05rem}
+.rv-featured .rv-who strong{font-size:1.05rem;color:var(--on-dark)}
+.rv-featured .rv-who span{color:var(--on-dark-mut)}
 
 /* Gleich grosse Karten */
 .review-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:1.4rem}
