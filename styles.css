@@ -502,7 +502,7 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .rv-qmark{position:absolute;top:-1.7rem;left:-.4rem;z-index:0;font-family:var(--font-serif);font-size:clamp(5rem,8vw,7.5rem);line-height:1;color:rgba(199,162,78,.32);pointer-events:none}
 .rv-featured-body{position:relative;z-index:1;min-width:0;padding-top:1.9rem}
 .rv-featured .stars{color:var(--gold-2);letter-spacing:.16em;font-size:1.1rem;margin-bottom:1.1rem}
-.rv-featured blockquote{margin:0 0 1.7rem;color:#F3EDE0;font-size:clamp(1.4rem,2.4vw,2.15rem);line-height:1.42;font-weight:500;letter-spacing:-.005em}
+.rv-featured blockquote{margin:0 0 1.7rem;color:#F3EDE0;font-size:clamp(1.15rem,1.9vw,1.65rem);line-height:1.5;font-weight:500;letter-spacing:-.005em}
 .rv-featured figcaption{display:flex;align-items:center;gap:1rem}
 .rv-featured .rv-who strong{font-size:1.05rem;color:var(--on-dark)}
 .rv-featured .rv-who span{color:var(--on-dark-mut)}
