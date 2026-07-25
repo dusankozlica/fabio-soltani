@@ -496,9 +496,9 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .rating-meta span{font-size:.68rem;color:var(--on-cream-mut)}
 
 /* Grosses Zitat oben */
-.rv-featured{position:relative;margin:0 0 clamp(1.6rem,3.5vw,2.6rem);display:grid;grid-template-columns:1.25fr minmax(300px,.82fr);gap:clamp(1.8rem,4vw,3.4rem);align-items:stretch}
+.rv-featured{position:relative;margin:0 0 clamp(1.6rem,3.5vw,2.6rem);display:grid;grid-template-columns:1.25fr minmax(300px,.82fr);gap:clamp(1.8rem,4vw,3.4rem);align-items:start}
 .rv-qmark{position:absolute;top:-1.7rem;left:-.4rem;z-index:0;font-family:var(--font-serif);font-size:clamp(5rem,8vw,7.5rem);line-height:1;color:rgba(199,162,78,.32);pointer-events:none}
-.rv-featured-body{position:relative;z-index:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+.rv-featured-body{position:relative;z-index:1;min-width:0;padding-top:.4rem}
 .rv-featured .stars{color:var(--gold-2);letter-spacing:.16em;font-size:1.1rem;margin-bottom:1.1rem}
 .rv-featured blockquote{margin:0 0 1.7rem;color:#F3EDE0;font-size:clamp(1.4rem,2.4vw,2.15rem);line-height:1.42;font-weight:500;letter-spacing:-.005em}
 .rv-featured figcaption{display:flex;align-items:center;gap:1rem}
@@ -522,7 +522,7 @@ img.rv-ava{background:none;box-shadow:inset 0 0 0 1px rgba(40,28,10,.12)}
 
 .ico-social{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7}
 
-.rv-clip{position:relative;z-index:1;align-self:stretch;min-height:460px;aspect-ratio:9/16;max-height:none;border-radius:var(--r-lg);overflow:hidden;background:#0e0b08;box-shadow:0 24px 55px -30px rgba(0,0,0,.7);cursor:pointer;isolation:isolate;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.rv-clip{position:relative;z-index:1;align-self:start;min-height:440px;aspect-ratio:9/16;max-height:560px;border-radius:var(--r-lg);overflow:hidden;background:#0e0b08;box-shadow:0 24px 55px -30px rgba(0,0,0,.7);cursor:pointer;isolation:isolate;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
 .rv-clip-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#0e0b08;transition:transform .9s var(--ease)}
 .rv-clip:hover{transform:translateY(-3px);box-shadow:0 34px 70px -30px rgba(0,0,0,.75)}
 .rv-clip:hover .rv-clip-video{transform:scale(1.04)}
