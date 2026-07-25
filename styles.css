@@ -364,7 +364,9 @@ html.js .trust-card.is-in .trust-item:nth-child(5){transition-delay:.34s}
 .proof-stars strong{color:var(--on-dark);font-size:1.1rem;font-weight:700;letter-spacing:0}
 .proof-sub{margin-top:.35rem;font-size:.92rem;color:#D8D1C4}
 .proof-sub strong{color:#fff;font-weight:700}
-.swiss-cross{display:block;width:32px;height:32px;margin-top:.7rem;border-radius:6px;box-shadow:0 2px 7px rgba(0,0,0,.45)}
+.swiss-cross{flex:none;display:block;width:32px;height:32px;border-radius:6px;box-shadow:0 2px 7px rgba(0,0,0,.45)}
+.proof-swiss{display:flex;align-items:center;gap:.65rem;margin-top:.45rem}
+.proof-swiss span{font-family:var(--font-t);font-size:.92rem;color:#D8D1C4}
 
 /* =========================================================
    PHILOSOPHY
