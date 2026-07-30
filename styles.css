@@ -218,8 +218,9 @@ a:focus-visible,button:focus-visible,.btn:focus-visible,.nav-toggle:focus-visibl
 @media (prefers-reduced-motion:reduce){.media-fallback{animation:none}}
 
 .hero-scrim{background:
-  linear-gradient(95deg,rgba(8,6,4,.92) 0%,rgba(8,6,4,.72) 34%,rgba(8,6,4,.28) 62%,rgba(8,6,4,.55) 100%),
-  linear-gradient(0deg,rgba(8,6,4,.85) 2%,rgba(8,6,4,0) 32%)}
+  linear-gradient(95deg,rgba(8,6,4,.94) 0%,rgba(8,6,4,.82) 40%,rgba(8,6,4,.5) 72%,rgba(8,6,4,.6) 100%),
+  linear-gradient(0deg,rgba(8,6,4,.82) 2%,rgba(8,6,4,0) 34%),
+  linear-gradient(rgba(8,6,4,.22),rgba(8,6,4,.22))}
 .philo-scrim{background:
   linear-gradient(90deg,rgba(8,6,4,.96) 0%,rgba(8,6,4,.92) 46%,rgba(8,6,4,.5) 74%,rgba(8,6,4,.68) 100%),
   linear-gradient(0deg,rgba(8,6,4,.65),rgba(8,6,4,0) 26%)}
