@@ -11,7 +11,7 @@
   var WORKDAYS = [1, 2, 3, 4, 5];               // Mo–Fr (0=So)
   // Optional: echte Atelier-Videos. Pfad eintragen, sobald Footage vorhanden ist –
   // dann spielt das Video automatisch, sonst bleibt die animierte Bild-Sektion (kein 404).
-  var VIDEOS = { hero: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3GmVWMu8qfChuhpbZAAwbcBzJN9/c0180d77-8bc9-4bcd-a68f-2a2a5d6d0b58.mp4', philosophie: 'assets/video/philosophie.mp4' };  // leeren ('') = nur animiertes Foto
+  var VIDEOS = { hero: 'https://d2ol7oe51mr4n9.cloudfront.net/user_3GmVWMu8qfChuhpbZAAwbcBzJN9/6f0f9825-e14b-4832-bbab-98f54932181f.mp4', philosophie: 'assets/video/philosophie.mp4' };  // leeren ('') = nur animiertes Foto
   /* ============================================================ */
 
   var $ = function (s, c) { return (c || document).querySelector(s); };
