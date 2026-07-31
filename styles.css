@@ -219,7 +219,7 @@ a:focus-visible,button:focus-visible,.btn:focus-visible,.nav-toggle:focus-visibl
 
 .hero-scrim{background:
   radial-gradient(130% 125% at 62% 40%,transparent 47%,rgba(6,4,2,.52) 100%),
-  linear-gradient(100deg,rgba(8,6,4,.88) 0%,rgba(8,6,4,.6) 30%,rgba(8,6,4,.24) 54%,rgba(8,6,4,0) 78%),
+  linear-gradient(100deg,rgba(8,6,4,.94) 0%,rgba(8,6,4,.74) 30%,rgba(8,6,4,.34) 54%,rgba(8,6,4,0) 78%),
   linear-gradient(0deg,rgba(8,6,4,.5) 0%,rgba(8,6,4,0) 18%)}
 .hero .media-video,.hero .media-fallback{filter:brightness(.9) contrast(1.11) saturate(1.05) sepia(.06)}
 @media (max-width:768px){.hero-scrim{background:
