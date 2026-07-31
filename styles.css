@@ -220,7 +220,6 @@ a:focus-visible,button:focus-visible,.btn:focus-visible,.nav-toggle:focus-visibl
 .hero-scrim{background:
   linear-gradient(100deg,rgba(8,6,4,.88) 0%,rgba(8,6,4,.6) 30%,rgba(8,6,4,.24) 54%,rgba(8,6,4,0) 78%),
   linear-gradient(0deg,rgba(8,6,4,.5) 0%,rgba(8,6,4,0) 18%)}
-.hero .media-video,.hero .media-fallback{filter:brightness(1.08) saturate(1.05)}
 @media (max-width:768px){.hero-scrim{background:
   linear-gradient(180deg,rgba(8,6,4,.55) 0%,rgba(8,6,4,.4) 44%,rgba(8,6,4,.58) 100%),
   linear-gradient(0deg,rgba(8,6,4,.5) 0%,rgba(8,6,4,0) 26%)}}
